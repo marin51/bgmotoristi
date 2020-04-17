@@ -38,8 +38,11 @@ const app = {
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
-        document.querySelector('#loading-modal-global').show();
-        home.init();
+        setTimeout(function() {
+            document.querySelector('#loading-modal-global').show();
+            home.init();
+        }, 200);
+
     }
 
 };

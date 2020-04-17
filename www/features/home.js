@@ -4,12 +4,13 @@ const home = (function() {
 
     function init() {
 
+        template.load('home');
+        navigation.load('home-ons-page', 'fade-ios', controller);
 
         function controller() {
-            console.log(1);
+            console.log('home');
         }
 
-        loadPage('home-ons-page', '', controller);
     }
 
     return {
