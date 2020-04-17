@@ -1,0 +1,53 @@
+[class^='fa'] {
+    line-height: inherit;
+}
+
+.hide {
+    display: none !important;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    -ms-touch-action: none;
+    font-family: var(--app-font) !important;
+    font-style: normal;
+    font-size: 14px;
+    letter-spacing: 1px;
+    min-height: 100vh !important;
+}
+
+body {
+    min-height: 100vh !important;
+}
+
+body.mb-preview-mode .page__content::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+body.mb-preview-mode .page__content::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+#myNavigator .page__content {
+    background: white !important;
+}
+
+html[onsflag-iphonex-portrait] body.iphone-x-styles .tabbar:not(.tabbar--top):not(.tabbar--top) {
+    padding-bottom: 68px;
+}
+
+html body img#imagelightbox {
+    max-width: 80vw;
+}
+
+@-moz-document url-prefix() {
+    #myNavigator .page__content {
+        scrollbar-width: none;
+    }
+}
