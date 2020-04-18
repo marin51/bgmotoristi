@@ -68,7 +68,38 @@ const template = (function() {
                         </div>
                     </ons-toolbar>
                     <div class="main-container">
-                        <p>login works</p>
+                        <div class="sign-up-form-container hide">
+                            <h4>Sign up here</h4></br>
+                            <form id="sign-up-form">
+                                <div class="inputs-container">
+                                    <input type="email" id="sign-up-email" class="text-input text-input--material" placeholder="Email Adress" required>
+                                </div>
+                                <div class="inputs-container">
+                                    <input type="password" id="sign-up-password" class="text-input text-input--material" placeholder="Password" required>
+                                </div>
+                                <div class="inputs-container">
+                                    <input type="name" id="sign-up-first-name" class="text-input text-input--material" placeholder="First Name" required>
+                                </div>
+                                <div class="inputs-container">
+                                    <input type="name" id="sign-up-last-name" class="text-input text-input--material" placeholder="Last Name" required>
+                                </div>
+                                <button class="button">Sign up</button>
+                                <span id="back-to-login" class="button--quiet">Login</span>
+                            </form>
+                        </div>
+                        <div class="login-form-container">
+                            <h4>Login here</h4></br>
+                            <form id="login-form">
+                                <div class="inputs-container">
+                                    <input type="email" id="login-email" class="text-input text-input--material" placeholder="Email Adress" required>
+                                </div>
+                                <div class="inputs-container">
+                                    <input type="password" id="login-password" class="text-input text-input--material" placeholder="Password" required>
+                                </div>
+                                <button class="button">Login</button>
+                                <span id="go-to-register" class="button--quiet">Register</span>
+                            </form>
+                        </div>
                     </div>
                 </ons-page>
             </template>`

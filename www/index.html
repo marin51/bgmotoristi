@@ -48,9 +48,9 @@
     <ons-splitter-side id="menu" side="left" width="260px" collapse swipeable>
       <ons-page>
         <ons-list class="menu-list-container">
-          <div onclick="settings.init()">
-            <span>settings</span>
-          </div>
+          <ons-list-item tappable onclick="settings.init()">
+            <i class="fas fa-user-cog"></i><span>Settings</span>
+          </ons-list-item>
 
           <ons-list-item tappable onclick="home.init()">
             Home
@@ -69,6 +69,9 @@
           </ons-list-item>
           <ons-list-item tappable onclick="usersList.init()">
             All users
+          </ons-list-item>
+          <ons-list-item tappable onclick="logout()">
+            <i class="far fa-sign-out"></i><span>Sign Out</span>
           </ons-list-item>
         </ons-list>
       </ons-page>
@@ -95,11 +98,19 @@
 
     </ons-page>
   </template>
+  <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-analytics.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
 
   <script src="libs/onsen/js/onsenui.min.js"></script>
   <script src="libs/jquery/jquery-3.5.0.min.js"></script>
   <script type="text/javascript" src="cordova.js"></script>
   <script type="text/javascript" src="js/navigation.js"></script>
+  <script type="text/javascript" src="js/firebase.js"></script>
+  <script type="text/javascript" src="js/functions.js"></script>
 
   <!-- all features -->
   <script type="text/javascript" src="features/home.js"></script>

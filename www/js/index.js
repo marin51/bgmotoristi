@@ -17,6 +17,7 @@
  * under the License.
  */
 /*jshint esversion: 6 */
+let Loading = null;
 const app = {
     // Application Constructor
     initialize: function() {
@@ -38,9 +39,11 @@ const app = {
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
+
+
         setTimeout(function() {
-            document.querySelector('#loading-modal-global').show();
-            home.init();
+            Loading = document.querySelector('#loading-modal-global');
+            Loading.show();
         }, 200);
 
     }
