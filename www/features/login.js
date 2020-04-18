@@ -43,13 +43,7 @@ const login = (function() {
                 e.preventDefault();
                 let email = signUpForm['sign-up-email'].value;
                 let password = signUpForm['sign-up-password'].value;
-                auth.signInWithEmailAndPassword(email, password).then((cred) => {
-                    home.init();
-                }).catch((error) => {
-                    ons.notification.alert({
-                        message: error.message
-                    });
-                });
+                auth.signInWithEmailAndPassword(email, password);
             });
         }
 
