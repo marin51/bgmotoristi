@@ -21,6 +21,7 @@ const login = (function() {
                         firstName: signUpForm['sign-up-first-name'].value,
                         lastName: signUpForm['sign-up-last-name'].value
                     }).then(() => {
+                        localStorage.setItem('logged_users_id', cred.user.uid);
                         home.init();
                     });
                 }).catch((error) => {
@@ -43,7 +44,9 @@ const login = (function() {
                 e.preventDefault();
                 let email = signUpForm['sign-up-email'].value;
                 let password = signUpForm['sign-up-password'].value;
-                auth.signInWithEmailAndPassword(email, password);
+                auth.signInWithEmailAndPassword(email, password).then((cred) => {
+                    localStorage.setItem('logged_users_id', cred.user.uid);
+                });
             });
         }
 

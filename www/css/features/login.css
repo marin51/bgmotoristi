@@ -1,0 +1,37 @@
+#myNavigator .login-page .main-container {
+    width: 100%;
+    height: calc(100vh - 44px);
+    display: table;
+}
+
+#myNavigator .login-page .main-container .inner-container {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#myNavigator .login-page .main-container .inner-container .welcome-message {
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+#myNavigator .login-page .main-container .inner-container .welcome-message p {
+    padding: 0;
+    margin: 0;
+    font-size: 5rem;
+    color: var(--bg-color);
+}
+
+#myNavigator .login-page .main-container .inner-container form {
+    padding: 10px 30px;
+    background-color: transparent;
+    text-align: center;
+}
+
+#myNavigator .login-page .main-container .inner-container form input {
+    width: 100%;
+    font-size: 1rem;
+}
+
+#myNavigator .login-page .main-container .inner-container form .inputs-container {
+    padding: 5px 0;
+}

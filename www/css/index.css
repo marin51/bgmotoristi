@@ -1,3 +1,13 @@
+@import "features/login.css";
+@import "features/settings.css";
+
+:root {
+    --bg-color: #000970;
+    --text-color: #f3f3f3;
+    --main-bg-color: white;
+    --main-text-color: #444;
+}
+
 [class^='fa'] {
     line-height: inherit;
 }
@@ -42,12 +52,73 @@ body.mb-preview-mode .page__content::-webkit-scrollbar-thumb {
     background: white !important;
 }
 
-html[onsflag-iphonex-portrait] body.iphone-x-styles .tabbar:not(.tabbar--top):not(.tabbar--top) {
-    padding-bottom: 68px;
+#myNavigator .toolbar {
+    background: rgb(250, 250, 250);
+    background: linear-gradient(180deg, rgba(250, 250, 250, 1) 46%, rgba(206, 206, 206, 1) 79%, rgba(161, 161, 161, 1) 100%);
+    color: var(--bg-color);
 }
 
-html body img#imagelightbox {
-    max-width: 80vw;
+#myNavigator .toolbar .center,
+#myNavigator .toolbar .right {
+    color: var(--bg-color);
+    font-size: 1rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#myNavigator .toolbar .toolbar-button {
+    color: var(--bg-color);
+}
+
+#myNavigator h1 {
+    font-size: 2rem;
+    padding: 0;
+    margin: 0;
+}
+
+#myNavigator h2 {
+    font-size: 1.75rem;
+    padding: 0;
+    margin: 0;
+}
+
+#myNavigator h3 {
+    font-size: 1.5rem;
+    padding: 0;
+    margin: 0;
+}
+
+#myNavigator h4 {
+    font-size: 1.25rem;
+    padding: 0;
+    margin: 0;
+}
+
+#myNavigator h5 {
+    font-size: 1.125rem;
+    padding: 0;
+    margin: 0;
+}
+
+#myNavigator p {
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+}
+
+#myNavigator span {
+    font-size: 0.875rem;
+    padding: 0;
+    margin: 0;
+}
+
+#myNavigator .button {
+    background-color: var(--bg-color);
+}
+
+#myNavigator .button--quiet {
+    color: var(--bg-color);
 }
 
 @-moz-document url-prefix() {

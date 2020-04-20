@@ -40,7 +40,7 @@
 
   <link rel="stylesheet" type="text/css" href="css/index.css">
 
-  <title>Hello World</title>
+  <title>Motoristi</title>
 </head>
 
 <body>
@@ -49,7 +49,7 @@
       <ons-page>
         <ons-list class="menu-list-container">
           <ons-list-item tappable onclick="settings.init()">
-            <i class="fas fa-user-cog"></i><span>Settings</span>
+            <i class="fas fa-user-cog"></i><span>Profile</span>
           </ons-list-item>
 
           <ons-list-item tappable onclick="home.init()">
@@ -98,19 +98,19 @@
 
     </ons-page>
   </template>
+  <script src="libs/onsen/js/onsenui.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
 
   <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-analytics.js"></script>
 
   <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
-
-  <script src="libs/onsen/js/onsenui.min.js"></script>
   <script src="libs/jquery/jquery-3.5.0.min.js"></script>
   <script type="text/javascript" src="cordova.js"></script>
   <script type="text/javascript" src="js/navigation.js"></script>
-  <script type="text/javascript" src="js/firebase.js"></script>
+  <script type="text/javascript" src="js/database.js"></script>
   <script type="text/javascript" src="js/functions.js"></script>
+  <script type="text/javascript" src="js/users.js"></script>
 
   <!-- all features -->
   <script type="text/javascript" src="features/home.js"></script>
@@ -123,6 +123,7 @@
   <script type="text/javascript" src="features/usersMap.js"></script>
   <!-- all modules -->
   <script type="text/javascript" src="modules/templates.module.js"></script>
+  <script type="text/javascript" src="modules/loading.module.js"></script>
 
   <script type="text/javascript" src="js/index.js"></script>
 

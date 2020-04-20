@@ -1,0 +1,47 @@
+#myNavigator .settings-page .main-container .main-profile-info {
+    width: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 20px 10px;
+}
+
+#myNavigator .settings-page .main-container .main-profile-info>div {
+    flex: 50%;
+    max-width: 50%;
+    text-align: center;
+}
+
+#myNavigator .settings-page .main-container .main-profile-info>div input {
+    width: 100%;
+}
+
+#myNavigator .settings-page .main-container h5 {
+    padding: 5px 10px;
+    background: rgb(159, 159, 159);
+    color: var(--bg-color);
+}
+
+#myNavigator .settings-page .main-container .main-profile-info div i {
+    font-size: 4rem;
+    color: var(--bg-color);
+}
+
+#myNavigator .settings-page .main-container .additional-data-container {
+    width: 100%;
+    padding: 20px 10px;
+}
+
+#myNavigator .settings-page .main-container .additional-data-container>div {
+    width: 100%;
+}
+
+#myNavigator .settings-page .main-container .additional-data-container>div input {
+    width: 100%;
+}
+
+#myNavigator .settings-page .main-container .additional-data-container div.button-container {
+    text-align: center;
+    padding-top: 20px;
+}
