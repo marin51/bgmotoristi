@@ -33,20 +33,11 @@ const app = {
             this.onDeviceReady("browser");
         }
     },
-
-
-    // deviceready Event Handler
-    //
-    // Bind any cordova events here. Common events are:
-    // 'pause', 'resume', etc.
     onDeviceReady: function() {
-        ons.enableAutoStatusBarFill();
-        ons.disableAutoStyling();
         setTimeout(function() {
-            document.querySelector('#loading-modal-global').show();
             database.init();
+            document.querySelector('#loading-modal-global').show();
         }, 0);
-
     }
 };
 app.initialize();
