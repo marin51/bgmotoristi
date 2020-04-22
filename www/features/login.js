@@ -42,10 +42,12 @@ const login = (function() {
 
             loginForm.addEventListener('submit', (e) => {
                 e.preventDefault();
-                let email = signUpForm['sign-up-email'].value;
-                let password = signUpForm['sign-up-password'].value;
+                let email = loginForm['login-email'].value;
+                let password = loginForm['login-password'].value;
                 auth.signInWithEmailAndPassword(email, password).then((cred) => {
                     localStorage.setItem('logged_users_id', cred.user.uid);
+                }, (err) => {
+                    console.log(err);
                 });
             });
         }
