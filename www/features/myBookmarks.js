@@ -8,6 +8,7 @@ const myBookmarks = (function() {
         navigation.load('my-bookmarks-ons-page', 'fade-ios', controller);
 
         function controller() {
+            Loading.hide();
             console.log('myBookmarks');
         }
 
@@ -15,5 +16,5 @@ const myBookmarks = (function() {
 
     return {
         init: init
-    }
+    };
 }());

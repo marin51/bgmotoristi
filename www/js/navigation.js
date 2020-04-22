@@ -8,6 +8,7 @@ const navigation = (function() {
         if (currPageId === pageId) {
             return;
         }
+        Loading.show();
         let appMenu = document.getElementById('menu'),
             appNavigator = document.getElementById('myNavigator'),
             anim = 'fade-ios';
@@ -31,6 +32,7 @@ const navigation = (function() {
 
     };
     const pushPage = function(page, anim, callbackFunction) {
+        Loading.show();
         let appNavigator = document.getElementById('myNavigator'),
             pageAnimation = 'slide-ios';
         if (anim === '') { pageAnimation = 'slide-ios'; } else { pageAnimation = anim; }

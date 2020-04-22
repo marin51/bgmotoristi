@@ -8,6 +8,7 @@ const usersMap = (function() {
         navigation.load('users-map-ons-page', 'fade-ios', controller);
 
         function controller() {
+            Loading.hide();
             console.log('usersMap');
         }
 
@@ -15,5 +16,5 @@ const usersMap = (function() {
 
     return {
         init: init
-    }
+    };
 }());

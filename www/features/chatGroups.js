@@ -8,6 +8,7 @@ const chatGroups = (function() {
         navigation.load('chat-groups-ons-page', 'fade-ios', controller);
 
         function controller() {
+            Loading.hide();
             console.log('chatGroups');
         }
 
@@ -15,5 +16,5 @@ const chatGroups = (function() {
 
     return {
         init: init
-    }
+    };
 }());

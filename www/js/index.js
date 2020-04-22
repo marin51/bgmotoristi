@@ -18,7 +18,8 @@
  */
 /*jshint esversion: 6 */
 let auth,
-    db;
+    db,
+    storage;
 const app = {
     // Application Constructor
     initialize: function() {

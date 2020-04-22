@@ -8,6 +8,7 @@ const home = (function() {
         navigation.load('home-ons-page', 'fade-ios', controller);
 
         function controller() {
+            Loading.hide();
             console.log('home');
         }
 
@@ -15,5 +16,5 @@ const home = (function() {
 
     return {
         init: init
-    }
+    };
 }());

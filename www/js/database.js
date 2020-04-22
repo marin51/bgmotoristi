@@ -16,6 +16,7 @@ const database = (function() {
         firebase.analytics();
         auth = firebase.auth();
         db = firebase.firestore();
+        storage = firebase.storage();
         auth.onAuthStateChanged(function(user) {
             if (user) {
                 // User is signed in.
@@ -40,7 +41,46 @@ const database = (function() {
         });
     }
 
-    return {
-        init: init
+    function addImage(file) {
+        return new Promise((resolve, reject) => {
+            // Create the file metadata
+            var metadata = {
+                contentType: 'image/jpeg'
+            };
+            // Upload file and metadata to the object 'images/mountains.jpg'
+            var uploadTask = storage.ref().child(`profile-images/${Math.floor(Math.random() * 10000)}_${file.name}`).put(file, metadata);
+            // Listen for state changes, errors, and completion of the upload.
+            uploadTask.on('state_changed', // or firebase.storage.TaskEvent.STATE_CHANGED
+                function(snapshot) {
+                    switch (snapshot.state) {
+                        case 'paused': // or firebase.storage.TaskState.PAUSED
+                            Debug.log({
+                                level: 1,
+                                message: 'firebase.service => Upload is paused'
+                            });
+                            break;
+                        case 'running': // or firebase.storage.TaskState.RUNNING
+                            Debug.log({
+                                level: 1,
+                                message: 'firebase.service => Upload is running'
+                            });
+                            break;
+                    }
+                },
+                function(error) {
+                    reject(error);
+                },
+                function() {
+                    uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                        resolve(downloadURL);
+                    }); // Upload completed successfully, now we can get the download URL
+                });
+        });
+
     }
+
+    return {
+        init: init,
+        addImage: addImage
+    };
 }());

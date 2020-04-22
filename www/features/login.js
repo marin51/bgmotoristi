@@ -8,6 +8,7 @@ const login = (function() {
         navigation.load('login-ons-page', 'fade-ios', controller);
 
         function controller() {
+            Loading.hide();
             $('#menu').removeAttr('swipeable');
             let signUpForm = document.getElementById('sign-up-form'),
                 loginForm = document.getElementById('login-form');
@@ -46,8 +47,11 @@ const login = (function() {
                 let password = loginForm['login-password'].value;
                 auth.signInWithEmailAndPassword(email, password).then((cred) => {
                     localStorage.setItem('logged_users_id', cred.user.uid);
-                }, (err) => {
-                    console.log(err);
+                }, (error) => {
+                    ons.notification.toast({
+                        message: error.message,
+                        timeout: 4000
+                    });
                 });
             });
         }

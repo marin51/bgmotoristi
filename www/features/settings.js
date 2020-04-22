@@ -3,7 +3,7 @@ const settings = (function() {
     'use strict';
 
     function init() {
-
+        var imageToupdate;
         template.load('settings');
 
         let userData = users.get().filter((user) => {
@@ -19,7 +19,7 @@ const settings = (function() {
                                 <div><input data-id="lastName" type="text" class="text-input text-input--underbar" placeholder="Last Name" value="${userData.lastName}"/></div>
                               </div>
                               <div class="image-container">
-                                  ${userData.photo?'<img src="${userData.photo}"/>' :'<div><i class="fal fa-camera-alt"></i></div>'}
+                                  ${userData.photo?`<img src="${userData.photo}"/>` :`<div><i class="fal fa-camera-alt"></i></div>`}
                               </div>
                          </div>`;
         containerHTML += `<h5>Addition Info </h5>`;
@@ -40,7 +40,18 @@ const settings = (function() {
         navigation.push('settings-ons-page', 'slide-ios', controller);
 
         function controller() {
-            console.log('settings');
+            Loading.hide();
+
+            $('.settings-page .main-container .image-container').on('click', function() {
+                cameraApi.showCameraActionSheet().then(function(imageUrl) {
+                    imageToupdate = b64toBlob(imageUrl);
+                    imageToupdate.name = `image_${Date.now()}`;
+
+                    $('.settings-page .main-container .image-container').html(`<img src="data:image/jpeg;base64,${imageUrl}" />`);
+                }, function(error) {
+                    console.log('error');
+                });
+            });
 
             $('.settings-page .main-container #save-profile-button').on('click', function() {
                 let profileInfo = {};
@@ -48,19 +59,25 @@ const settings = (function() {
                     if (item.value.length) {
                         profileInfo[item.getAttribute('data-id')] = item.value;
                     }
-
                 });
+                if ($('.settings-page .main-container .image-container img').length) {
+                    profileInfo.photo = $('.settings-page .main-container .image-container img').attr('src');
+                }
                 if (JSON.stringify(profileInfo) !== JSON.stringify(userData)) {
-                    db.collection('users').doc(localStorage.getItem('logged_users_id')).update(profileInfo).then(() => {
-                        ons.notification.toast({
-                            message: 'Successfully updated profile data',
-                            timeout: 2000
-                        });
-                    }).catch((error) => {
-                        ons.notification.alert({
-                            message: error.message
+                    database.addImage(imageToupdate).then(function(photoUrl) {
+                        profileInfo.photo = photoUrl;
+                        db.collection('users').doc(localStorage.getItem('logged_users_id')).update(profileInfo).then(() => {
+                            ons.notification.toast({
+                                message: 'Successfully updated profile data',
+                                timeout: 2000
+                            });
+                        }).catch((error) => {
+                            ons.notification.alert({
+                                message: error.message
+                            });
                         });
                     });
+
                 }
             });
 
@@ -70,5 +87,5 @@ const settings = (function() {
 
     return {
         init: init
-    }
+    };
 }());

@@ -8,6 +8,7 @@ const socialWall = (function() {
         navigation.load('social-wall-ons-page', 'fade-ios', controller);
 
         function controller() {
+            Loading.hide();
             console.log('socialWall');
         }
 
@@ -15,5 +16,5 @@ const socialWall = (function() {
 
     return {
         init: init
-    }
+    };
 }());

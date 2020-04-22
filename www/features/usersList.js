@@ -8,6 +8,7 @@ const usersList = (function() {
         navigation.load('users-list-ons-page', 'fade-ios', controller);
 
         function controller() {
+            Loading.hide();
             console.log('usersList');
         }
 
@@ -15,5 +16,5 @@ const usersList = (function() {
 
     return {
         init: init
-    }
+    };
 }());

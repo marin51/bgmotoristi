@@ -121,8 +121,18 @@ body.mb-preview-mode .page__content::-webkit-scrollbar-thumb {
     color: var(--bg-color);
 }
 
+#loading-modal-template .loading-icon {
+    font-size: 3rem;
+    color: var(--bg-color);
+}
+
 @-moz-document url-prefix() {
     #myNavigator .page__content {
         scrollbar-width: none;
     }
+}
+
+.camera-api-options-sheet .action-sheet-button {
+    color: var(--main-text-color);
+    font-size: 1rem;
 }
