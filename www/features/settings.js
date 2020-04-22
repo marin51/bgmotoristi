@@ -19,7 +19,7 @@ const settings = (function() {
                                 <div><input data-id="lastName" type="text" class="text-input text-input--underbar" placeholder="Last Name" value="${userData.lastName}"/></div>
                               </div>
                               <div class="image-container">
-                                  ${userData.photo?'<img src="${userData.photo}"/>' :'<div><i class="fas fa-helmet-battle"></i></div>'}
+                                  ${userData.photo?'<img src="${userData.photo}"/>' :'<div><i class="fal fa-camera-alt"></i></div>'}
                               </div>
                          </div>`;
         containerHTML += `<h5>Addition Info </h5>`;
@@ -31,6 +31,7 @@ const settings = (function() {
         containerHTML += `<div><input data-id="phone" type="tel" pattern="[0-9]{10}" maxlength="10" minlength="10" class="text-input text-input--underbar" placeholder="Phone" value="${userData.phone ? userData.phone:''}"/></div>`;
         containerHTML += `<div><input data-id="firstName" class="text-input text-input--underbar" placeholder="Skype" value="${userData.skype ? userData.skype:''}"/></div>`;
         containerHTML += `<div><input data-id="telegram" class="text-input text-input--underbar" placeholder="Telegram" value="${userData.telegram ? userData.telegram:''}"/></div>`;
+        //  containerHTML += `<div><input data-id="file" type="file" class="text-input text-input--underbar"/></div>`;
 
         containerHTML += `<div class="button-container"><button id="save-profile-button" class="button">Save</button></div>`;
         containerHTML += `</div>`;
