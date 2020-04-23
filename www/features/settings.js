@@ -19,7 +19,7 @@ const settings = (function() {
                                 <div><input data-id="lastName" type="text" class="text-input text-input--underbar" placeholder="Last Name" value="${userData.lastName}"/></div>
                               </div>
                               <div class="image-container">
-                                  ${userData.photo?`<img src="${userData.photo}"/>` :`<div><i class="fal fa-camera-alt"></i></div>`}
+                                  ${userData.photo?`<img class="preload-image" src="img/loading.svg"/>` :`<div><i class="fal fa-camera-alt"></i></div>`}
                               </div>
                          </div>`;
         containerHTML += `<h5>Addition Info </h5>`;
@@ -41,6 +41,10 @@ const settings = (function() {
 
         function controller() {
             Loading.hide();
+
+            if ($('.settings-page .main-container .image-container .preload-image').length) {
+                $('.settings-page .main-container .image-container .preload-image').attr('src', userData.photo);
+            }
 
             $('.settings-page .main-container .image-container').on('click', function() {
                 cameraApi.showCameraActionSheet().then(function(imageUrl) {

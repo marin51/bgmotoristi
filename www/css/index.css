@@ -136,3 +136,9 @@ body.mb-preview-mode .page__content::-webkit-scrollbar-thumb {
     color: var(--main-text-color);
     font-size: 1rem;
 }
+
+@media (min-width: 768px) and (max-width: 1200px) {
+    html {
+        font-size: 20px;
+    }
+}

@@ -19,8 +19,8 @@
 
 #myNavigator .settings-page .main-container .main-profile-info .image-container img {
     border-radius: 20%;
-    width: 100px;
-    height: 100px;
+    width: 25vw;
+    height: 25vw;
     object-fit: cover;
 }
 
@@ -42,10 +42,12 @@
 
 #myNavigator .settings-page .main-container .additional-data-container>div {
     width: 100%;
+    font-size: 1rem;
 }
 
 #myNavigator .settings-page .main-container .additional-data-container>div input {
     width: 100%;
+    font-size: 1rem;
 }
 
 #myNavigator .settings-page .main-container .additional-data-container div.button-container {
