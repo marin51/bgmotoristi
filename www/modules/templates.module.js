@@ -189,7 +189,9 @@ const template = (function() {
                         </div>
                     </ons-toolbar>
                     <div class="main-container">
-                        <p>Users List works</p>
+                        <ons-list class="users-ons-list">
+                            <ons-lazy-repeat id="users-infinite-list"></ons-lazy-repeat>
+                        </ons-list>
                     </div>
                 </ons-page>
             </template>`
@@ -215,6 +217,27 @@ const template = (function() {
                 </ons-page>
             </template>`
         },
+        userDetails: {
+            id: `user-details-ons-page`,
+            html: `
+            <template id="user-details-ons-page">
+                <ons-page class="user-details-page">
+                    <ons-toolbar>
+                        <div class="left">
+                          <ons-toolbar-button onclick="navigation.pop()">
+                              <i class="fas fa-chevron-left"></i>
+                          </ons-toolbar-button>
+                        </div>
+                        <div class="center">
+                            Details
+                        </div>
+                    </ons-toolbar>
+                    <div class="main-container">
+                        <p>User details works</p>
+                    </div>
+                </ons-page>
+            </template>`
+        }
     }
 
 

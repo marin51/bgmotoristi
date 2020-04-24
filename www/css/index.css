@@ -1,11 +1,14 @@
 @import "features/login.css";
 @import "features/settings.css";
+@import "features/usersList.css";
+@import "features/userDetails.css";
 
 :root {
     --bg-color: #000970;
     --text-color: #f3f3f3;
     --main-bg-color: white;
     --main-text-color: #444;
+    --border-color: #dcdcdc;
 }
 
 [class^='fa'] {

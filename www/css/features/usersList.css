@@ -1,0 +1,72 @@
+#myNavigator .users-list-page .users-ons-list {
+    padding: 5px;
+}
+
+#myNavigator .users-list-page .users-ons-list .first-name {
+    font-size: 1.125rem;
+    -webkit-flex-basis: 100%;
+    flex-basis: 100%;
+    -webkit-align-self: flex-end;
+    align-self: flex-end;
+    -webkit-box-ordinal-group: 1;
+    -webkit-order: 0;
+    order: 0;
+}
+
+#myNavigator .users-list-page .users-ons-list .last-name {
+    font-size: 1rem;
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+    order: 1;
+    -webkit-flex-basis: 100%;
+    flex-basis: 100%;
+    -webkit-align-self: flex-start;
+    align-self: flex-start;
+}
+
+#myNavigator .users-list-page .users-ons-list .image-container {
+    padding-top: 1px;
+}
+
+#myNavigator .users-list-page .users-ons-list .image-container i {
+    font-size: 55px;
+    padding: 15px 0 0 0px;
+    color: var(--bg-color);
+}
+
+#myNavigator .users-list-page .users-ons-list .list-item {
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    margin: 2px 0 0px 0;
+    padding: 3px 10px 3px 10px;
+}
+
+#myNavigator .users-list-page .users-ons-list .list-item .left img {
+    width: 55px;
+    height: 55px;
+    border-radius: 20%;
+    object-fit: cover;
+    background-color: var(--succevo);
+}
+
+#myNavigator .users-list-page .users-ons-list .list-item .right i {
+    color: var(--bg-color);
+    font-size: 1.5rem;
+}
+
+#myNavigator .users-list-page .users-ons-list .list-item .left {
+    background-image: none !important;
+    padding: 0px 14px 0px 0;
+    min-height: 60px;
+}
+
+#myNavigator .users-list-page .users-ons-list .list-item .center {
+    background-image: none !important;
+    padding: 0px 6px 0px 0;
+    word-break: break-word;
+}
+
+#myNavigator .users-list-page .users-ons-list .list-item .right {
+    background-image: none !important;
+    padding: 0px 12px 0px 12px;
+}

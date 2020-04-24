@@ -7,21 +7,25 @@ const settings = (function() {
         template.load('settings');
 
         let userData = users.get().filter((user) => {
-                console.log(user.id);
                 return user.id === localStorage.getItem('logged_users_id');
             })[0],
             containerHTML = ``;
 
-        containerHTML += `  <h5>Main Profile Info </h5>
-                            <div class="main-profile-info">
-                              <div class="names-container">
-                                <div><input data-id="firstName" type="text" class="text-input text-input--underbar" placeholder="First Name" value="${userData.firstName}"/></div>
-                                <div><input data-id="lastName" type="text" class="text-input text-input--underbar" placeholder="Last Name" value="${userData.lastName}"/></div>
-                              </div>
-                              <div class="image-container">
-                                  ${userData.photo?`<img class="preload-image" src="img/loading.svg"/>` :`<div><i class="fal fa-camera-alt"></i></div>`}
-                              </div>
-                         </div>`;
+        containerHTML += `<h5>Main Profile Info </h5>
+                              <div class="main-profile-info">
+                                  <div class="names-container">
+                                      <div>
+                                          <input data-id="firstName" type="text" class="text-input text-input--underbar" placeholder="First Name" value="${userData.firstName}" />
+                                      </div>
+                                      <div>
+                                          <input data-id="lastName" type="text" class="text-input text-input--underbar" placeholder="Last Name" value="${userData.lastName}" />
+                                      </div>
+                                  </div>
+                                  <div class="image-container">
+                                      ${userData.photo?`<img class="preload-image" src="img/loading.svg" />` :`
+                                      <div><i class="fal fa-camera-alt"></i></div>`}
+                                  </div>
+                              </div>                          `;
         containerHTML += `<h5>Addition Info </h5>`;
         containerHTML += `<div class="additional-data-container">`;
 
@@ -68,20 +72,27 @@ const settings = (function() {
                     profileInfo.photo = $('.settings-page .main-container .image-container img').attr('src');
                 }
                 if (JSON.stringify(profileInfo) !== JSON.stringify(userData)) {
-                    database.addImage(imageToupdate).then(function(photoUrl) {
-                        profileInfo.photo = photoUrl;
-                        db.collection('users').doc(localStorage.getItem('logged_users_id')).update(profileInfo).then(() => {
-                            ons.notification.toast({
-                                message: 'Successfully updated profile data',
-                                timeout: 2000
-                            });
-                        }).catch((error) => {
-                            ons.notification.alert({
-                                message: error.message
-                            });
+                    if (profileInfo.photo !== userData.photo) {
+                        database.addImage(imageToupdate).then(function(photoUrl) {
+                            profileInfo.photo = photoUrl;
+                            updateUserProfileData();
+                        });
+                    } else {
+                        updateUserProfileData();
+                    }
+                }
+
+                function updateUserProfileData() {
+                    db.collection('users').doc(localStorage.getItem('logged_users_id')).update(profileInfo).then(() => {
+                        ons.notification.toast({
+                            message: 'Successfully updated profile data',
+                            timeout: 2000
+                        });
+                    }).catch((error) => {
+                        ons.notification.alert({
+                            message: error.message
                         });
                     });
-
                 }
             });
 
