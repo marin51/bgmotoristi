@@ -1,0 +1,84 @@
+#myNavigator .user-details-page .main-container .main-profile-info {
+    width: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 20px 10px;
+    height: 20vh;
+}
+
+#myNavigator .user-details-page .main-container .main-profile-info .names-container {
+    flex: 50%;
+    max-width: 50%;
+}
+
+#myNavigator .user-details-page .main-container .main-profile-info p {
+    padding: 5px 0px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 1.125rem
+}
+
+#myNavigator .user-details-page .main-container .main-profile-info .image-container {
+    text-align: center;
+    flex: 50%;
+    max-width: 50%;
+}
+
+#myNavigator .user-details-page .main-container .main-profile-info .image-container img {
+    border-radius: 20%;
+    width: 25vw;
+    height: 25vw;
+    object-fit: cover;
+}
+
+#myNavigator .user-details-page .main-container h5 {
+    padding: 5px 10px;
+    background: rgb(159, 159, 159);
+    color: var(--bg-color);
+}
+
+#myNavigator .user-details-page .main-container .sub-profile-info {
+    padding: 10px;
+}
+
+#myNavigator .user-details-page .main-container .sub-profile-info div.single-item {
+    padding: 5px 0px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 1.125rem;
+}
+
+#myNavigator .user-details-page .main-container .sub-profile-info .empty-image-outher {
+    width: 100%;
+    display: table;
+    height: 65vh;
+}
+
+#myNavigator .user-details-page .main-container .sub-profile-info .empty-image-inner {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#myNavigator .user-details-page .main-container .sub-profile-info .empty-image-inner img {
+    width: 50%;
+}
+
+#myNavigator .user-details-page .main-container .sub-profile-info div.left {
+    padding: 0;
+    width: 7vw;
+    border-bottom: 0;
+    font-size: 1.125rem;
+    display: inline-block;
+    text-align: center;
+}
+
+#myNavigator .user-details-page .main-container .sub-profile-info div i {
+    font-size: 1.5rem;
+    color: var(--bg-color);
+}
+
+#myNavigator .user-details-page .main-container .main-profile-info div i {
+    font-size: 5rem;
+    color: var(--bg-color);
+}

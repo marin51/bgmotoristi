@@ -33,9 +33,8 @@ const settings = (function() {
         containerHTML += `<div><input data-id="facebook" type="text" class="text-input text-input--underbar" placeholder="Facebook" value="${userData.facebook ? userData.facebook:''}"/></div>`;
         containerHTML += `<div><input data-id="instagram" type="text" class="text-input text-input--underbar" placeholder="Instagram" value="${userData.instagram ? userData.instagram:''}"/></div>`;
         containerHTML += `<div><input data-id="phone" type="tel" pattern="[0-9]{10}" maxlength="10" minlength="10" class="text-input text-input--underbar" placeholder="Phone" value="${userData.phone ? userData.phone:''}"/></div>`;
-        containerHTML += `<div><input data-id="firstName" class="text-input text-input--underbar" placeholder="Skype" value="${userData.skype ? userData.skype:''}"/></div>`;
-        containerHTML += `<div><input data-id="telegram" class="text-input text-input--underbar" placeholder="Telegram" value="${userData.telegram ? userData.telegram:''}"/></div>`;
-        //  containerHTML += `<div><input data-id="file" type="file" class="text-input text-input--underbar"/></div>`;
+        containerHTML += `<div><input data-id="skype" class="text-input text-input--underbar" placeholder="Skype" value="${userData.skype ? userData.skype:''}"/></div>`;
+        containerHTML += `<div><input data-id="link" class="text-input text-input--underbar" placeholder="Web link" value="${userData.link ? userData.link:''}"/></div>`;
 
         containerHTML += `<div class="button-container"><button id="save-profile-button" class="button">Save</button></div>`;
         containerHTML += `</div>`;

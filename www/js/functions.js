@@ -1,3 +1,4 @@
+//jshint esversion: 6
 function logout() {
     auth.signOut().then(() => {
         localStorage.removeItem('logged_users_id');
@@ -28,4 +29,14 @@ function b64toBlob(b64Data, contentType, sliceSize) {
         type: contentType
     });
     return blob;
+}
+
+function validateLink(link) {
+    let validLink = '';
+    if (link.indexOf('https://') === -1 && link.indexOf('http://') === -1) {
+        validLink += `https://${link}`;
+    } else {
+        validLink = link;
+    }
+    return validLink;
 }
