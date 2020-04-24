@@ -61,6 +61,7 @@ const settings = (function() {
             });
 
             $('.settings-page .main-container #save-profile-button').on('click', function() {
+                Loading.show();
                 let profileInfo = {};
                 $.each($('.settings-page .main-container input'), function(i, item) {
                     if (item.value.length) {
@@ -87,10 +88,12 @@ const settings = (function() {
                             message: 'Successfully updated profile data',
                             timeout: 2000
                         });
+                        Loading.hide();
                     }).catch((error) => {
                         ons.notification.alert({
                             message: error.message
                         });
+                        Loading.hide();
                     });
                 }
             });
