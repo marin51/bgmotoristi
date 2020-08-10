@@ -35,9 +35,23 @@ const UsersMap = (function() {
             Loading.hide();
             let map,
                 coords = JSON.parse(localStorage.getItem('logged_user_position')),
-                currentLocationMarker;
+                usersArray = Users.get(),
+                markersArray = Coordinates.get().filter((coords) => {
+                    if (coords.userId !== localStorage.getItem('logged_users_id')) { return coords; };
+                });
+            // map and my position
             initMap();
             initMarker(coords.latitude, coords.longitude, "You are here!", coords.timestamp);
+            //another users position
+            if (markersArray.length) {
+                for (let i = 0; i < markersArray.length; i++) {
+                    let userData = usersArray.filter((user) => {
+                        if (user.id === localStorage.getItem('logged_users_id')) { return user; };
+                    })[0];
+                    initMarker(markersArray[i].latitude, markersArray[i].longitude, `<span onclick="UserDetails.init('${userData.id}')">${userData.firstName} was here at </span>`, markersArray[i].timestamp)
+                }
+            }
+
 
             function initMap() {
                 map = new google.maps.Map(document.getElementById("map"), {
@@ -47,7 +61,8 @@ const UsersMap = (function() {
             }
 
             function initMarker(markerLatitude, markerLongitude, markerTitle, timePicked) {
-                currentLocationMarker = new google.maps.Marker({
+
+                let currentLocationMarker = new google.maps.Marker({
                     position: {
                         lat: markerLatitude,
                         lng: markerLongitude

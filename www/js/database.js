@@ -38,6 +38,19 @@ const Database = (function() {
                 }
                 Users.set(usersArray);
             });
+
+            db.collection('coords').onSnapshot(function(querySnapshot) {
+                let coordsArray = [];
+                for (let i = 0; i < querySnapshot.docs.length; i += 1) {
+                    let coordsData = querySnapshot.docs[i].data();
+                    if (coordsData.userId === localStorage.getItem('logged_users_id')) {
+                        localStorage.setItem('logged_user_position', JSON.stringify(coordsData));
+                    }
+                    coordsData.id = querySnapshot.docs[i].id;
+                    coordsArray.push(coordsData);
+                }
+                Coordinates.set(coordsArray);
+            });
         });
     }
 

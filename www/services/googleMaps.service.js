@@ -1,4 +1,5 @@
-var MapsService = (function() {
+//jshint esversion: 6
+const MapsService = (function() {
     'use strict';
 
     function getCurrentLocation() {
@@ -14,7 +15,33 @@ var MapsService = (function() {
                     speed: position.coords.heading,
                     timestamp: position.timestamp
                 }));
-                resolve('Success');
+                if (localStorage.getItem('logged_user_deny_access_to_location')) {
+                    localStorage.removeItem('logged_user_deny_access_to_location');
+                }
+                db.collection('coords').where("userId", "==", localStorage.getItem('logged_users_id')).limit(1).get().then(function(firebaseData) {
+
+                    if (firebaseData.docs.length) {
+                        let data = firebaseData.docs[0].data();
+                        db.collection('coords').doc(data.id).set({
+                            id: data.id,
+                            userId: localStorage.getItem('logged_users_id'),
+                            latitude: position.coords.latitude,
+                            longitude: position.coords.longitude,
+                            timestamp: position.timestamp || new Date().getTime
+                        });
+                    } else {
+                        const ref = db.collection("coords").doc();
+                        db.collection('coords').doc(ref.id).set({
+                            id: ref.id,
+                            userId: localStorage.getItem('logged_users_id'),
+                            latitude: position.coords.latitude,
+                            longitude: position.coords.longitude,
+                            timestamp: position.timestamp || new Date().getTime
+                        });
+                    }
+                    resolve('Success');
+
+                });
             }, function(error) {
                 alert(error);
                 localStorage.setItem('logged_user_deny_access_to_location', 1);
