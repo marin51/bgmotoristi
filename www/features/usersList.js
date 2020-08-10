@@ -25,7 +25,7 @@ const UsersList = (function() {
 
             $('#myNavigator .users-list-page .users-ons-list .list-item .right').on('click', function() {
                 UserDetails.init($(this).attr('data-id'));
-            })
+            });
 
         }
 
