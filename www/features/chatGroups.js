@@ -1,11 +1,11 @@
 /*jshint esversion: 6 */
-const chatGroups = (function() {
+const ChatGroups = (function() {
     'use strict';
 
     function init() {
 
         template.load('chatGroups');
-        navigation.load('chat-groups-ons-page', 'fade-ios', controller);
+        Navigation.load('chat-groups-ons-page', 'fade-ios', controller);
 
         function controller() {
             Loading.hide();

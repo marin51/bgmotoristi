@@ -1,11 +1,11 @@
 /*jshint esversion: 6 */
-const usersMap = (function() {
+const UsersMap = (function() {
     'use strict';
 
     function init() {
 
         template.load('usersMap');
-        navigation.load('users-map-ons-page', 'fade-ios', controller);
+        Navigation.load('users-map-ons-page', 'fade-ios', controller);
 
         function controller() {
             Loading.hide();

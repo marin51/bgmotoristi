@@ -36,7 +36,7 @@ const app = {
     },
     onDeviceReady: function() {
         setTimeout(function() {
-            database.init();
+            Database.init();
             document.querySelector('#loading-modal-global').show();
         }, 0);
     }

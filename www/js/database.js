@@ -10,7 +10,7 @@ firebase.initializeApp({
     measurementId: "G-QPS7XLB51K"
 });
 
-const database = (function() {
+const Database = (function() {
 
     function init() {
         firebase.analytics();
@@ -22,10 +22,10 @@ const database = (function() {
                 // User is signed in.
                 console.log("User is signed in.");
                 console.log('user', user);
-                home.init();
+                Home.init();
             } else {
                 // User is signed out.
-                login.init();
+                Login.init();
             }
 
             db.collection('users').onSnapshot(function(querySnapshot) {
@@ -36,7 +36,7 @@ const database = (function() {
                     console.log('userData', userData);
                     usersArray.push(userData);
                 }
-                users.set(usersArray);
+                Users.set(usersArray);
             });
         });
     }

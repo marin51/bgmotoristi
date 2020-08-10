@@ -1,11 +1,11 @@
 /*jshint esversion: 6 */
-const socialWall = (function() {
+const SocialWall = (function() {
     'use strict';
 
     function init() {
 
         template.load('socialWall');
-        navigation.load('social-wall-ons-page', 'fade-ios', controller);
+        Navigation.load('social-wall-ons-page', 'fade-ios', controller);
 
         function controller() {
             Loading.hide();

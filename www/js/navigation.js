@@ -1,5 +1,5 @@
 /*jshint esversion: 6 */
-const navigation = (function() {
+const Navigation = (function() {
     'use strict';
     let currPageId = '';
 

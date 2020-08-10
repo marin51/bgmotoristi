@@ -22,7 +22,7 @@ const template = (function() {
               <ons-page class="home-page">
                 <ons-toolbar>
                     <div class="left">
-                        <ons-toolbar-button onclick="navigation.openMenu()">
+                        <ons-toolbar-button onclick="Navigation.openMenu()">
                             <ons-icon icon="md-menu"></ons-icon>
                         </ons-toolbar-button>
                     </div>
@@ -43,7 +43,7 @@ const template = (function() {
                 <ons-page class="chat-groups-page">
                     <ons-toolbar>
                         <div class="left">
-                            <ons-toolbar-button onclick="navigation.openMenu()">
+                            <ons-toolbar-button onclick="Navigation.openMenu()">
                                 <ons-icon icon="md-menu"></ons-icon>
                             </ons-toolbar-button>
                         </div>
@@ -115,7 +115,7 @@ const template = (function() {
                 <ons-page class="my-bookmarks-page">
                 <ons-toolbar>
                     <div class="left">
-                        <ons-toolbar-button onclick="navigation.openMenu()">
+                        <ons-toolbar-button onclick="Navigation.openMenu()">
                             <ons-icon icon="md-menu"></ons-icon>
                         </ons-toolbar-button>
                     </div>
@@ -137,7 +137,7 @@ const template = (function() {
                 <ons-page class="settings-page">
                     <ons-toolbar>
                         <div class="left">
-                            <ons-toolbar-button onclick="navigation.pop()">
+                            <ons-toolbar-button onclick="Navigation.pop()">
                                 <i class="fas fa-chevron-left"></i>
                             </ons-toolbar-button>
                         </div>
@@ -159,7 +159,7 @@ const template = (function() {
                 <ons-page class="social-wall-page">
                     <ons-toolbar>
                         <div class="left">
-                            <ons-toolbar-button onclick="navigation.openMenu()">
+                            <ons-toolbar-button onclick="Navigation.openMenu()">
                                 <ons-icon icon="md-menu"></ons-icon>
                             </ons-toolbar-button>
                         </div>
@@ -180,7 +180,7 @@ const template = (function() {
                 <ons-page class="users-list-page">
                     <ons-toolbar>
                         <div class="left">
-                            <ons-toolbar-button onclick="navigation.openMenu()">
+                            <ons-toolbar-button onclick="Navigation.openMenu()">
                                 <ons-icon icon="md-menu"></ons-icon>
                             </ons-toolbar-button>
                         </div>
@@ -203,7 +203,7 @@ const template = (function() {
                 <ons-page class="users-map-page">
                     <ons-toolbar>
                         <div class="left">
-                            <ons-toolbar-button onclick="navigation.openMenu()">
+                            <ons-toolbar-button onclick="Navigation.openMenu()">
                                 <ons-icon icon="md-menu"></ons-icon>
                             </ons-toolbar-button>
                         </div>
@@ -224,7 +224,7 @@ const template = (function() {
                 <ons-page class="user-details-page">
                     <ons-toolbar>
                         <div class="left">
-                          <ons-toolbar-button onclick="navigation.pop()">
+                          <ons-toolbar-button onclick="Navigation.pop()">
                               <i class="fas fa-chevron-left"></i>
                           </ons-toolbar-button>
                         </div>

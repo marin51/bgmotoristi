@@ -1,13 +1,13 @@
 /*jshint esversion: 6 */
-const usersList = (function() {
+const UsersList = (function() {
     'use strict';
 
     function init() {
-        let allUsers = users.get();
+        let allUsers = Users.get();
 
 
         template.load('usersList');
-        navigation.load('users-list-ons-page', 'fade-ios', controller);
+        Navigation.load('users-list-ons-page', 'fade-ios', controller);
 
         function controller() {
             Loading.hide();
@@ -24,7 +24,7 @@ const usersList = (function() {
             }, 0);
 
             $('#myNavigator .users-list-page .users-ons-list .list-item .right').on('click', function() {
-                userDetails.init($(this).attr('data-id'));
+                UserDetails.init($(this).attr('data-id'));
             })
 
         }
@@ -49,7 +49,7 @@ const usersList = (function() {
             <ons-list-item>
                 <div class="left">
                     <div class="image-container">
-                        ${allUsers[i].photo ? `<img class="profile-image" data-src="${allUsers[i].photo}" src="img/loading.svg"/>` :`<i class="fal fa-user-circle"></i>`}
+                        ${allUsers[i].photo ? `<img class="profile-image" data-src="${allUsers[i].photo}" src="img/loading.svg"/>` : `<i class="fal fa-user-circle"></i>`}
                     </div>
                 </div>
                 <div class="center">

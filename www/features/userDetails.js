@@ -1,12 +1,12 @@
 /*jshint esversion: 6 */
-const userDetails = (function() {
+const UserDetails = (function() {
     'use strict';
 
     function init(userId = null) {
         if (!userId) { Loading.hide(); return; }
         template.load('userDetails');
 
-        let userData = users.get().filter((user) => {
+        let userData = Users.get().filter((user) => {
                 return user.id === userId;
             })[0],
             detailsHTML = `
@@ -36,7 +36,7 @@ const userDetails = (function() {
 
         $($('#user-details-ons-page')[0])[0].content.querySelector('.main-container').innerHTML = detailsHTML;
 
-        navigation.push('user-details-ons-page', 'fade-ios', controller);
+        Navigation.push('user-details-ons-page', 'fade-ios', controller);
 
         function controller() {
 

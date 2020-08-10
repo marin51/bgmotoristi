@@ -1,11 +1,11 @@
 /*jshint esversion: 6 */
-const login = (function() {
+const Login = (function() {
     'use strict';
 
     function init() {
 
         template.load('login');
-        navigation.load('login-ons-page', 'fade-ios', controller);
+        Navigation.load('login-ons-page', 'fade-ios', controller);
 
         function controller() {
             Loading.hide();
@@ -23,7 +23,7 @@ const login = (function() {
                         lastName: signUpForm['sign-up-last-name'].value
                     }).then(() => {
                         localStorage.setItem('logged_users_id', cred.user.uid);
-                        home.init();
+                        Home.init();
                     });
                 }).catch((error) => {
                     ons.notification.alert({

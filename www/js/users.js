@@ -1,5 +1,5 @@
 /*jshint esversion: 6 */
-const users = (function() {
+const Users = (function() {
     'use strict';
     let allUsers = [];
 

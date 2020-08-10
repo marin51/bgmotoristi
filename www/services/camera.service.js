@@ -1,5 +1,5 @@
 //jshint esversion: 6
-const cameraApi = (function() {
+const CameraService = (function() {
     'use strict';
 
 
