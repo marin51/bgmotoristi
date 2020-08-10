@@ -9,7 +9,7 @@ const Home = (function() {
 
         function controller() {
             Loading.hide();
-            if (!localStorage.getItem('logged_user_position') || localStorage.getItem('logged_user_position').timestamp < new Date().getTime - 6000000) {
+            if (!localStorage.getItem('logged_user_position') || JSON.parse(localStorage.getItem('logged_user_position')).timestamp < new Date().getTime() - 6000000) {
                 MapsService.getCurrentLocation();
             }
 
