@@ -20,7 +20,7 @@
 <html>
 
 <head>
-    <!--
+  <!--
         Customize this policy to fit your own app's needs. For more guidance, see:
             https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
         Some notes:
@@ -29,111 +29,112 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-    <meta http-equiv="Content-Security-Policy"
-      content="default-src * 'self' mailto:* data:* gap://* tel:* 'unsafe-inline' 'unsafe-eval' file://* ; script-src * 'unsafe-inline' 'unsafe-eval'; style-src * 'unsafe-inline'; media-src *;img-src * filesystem: cdvfile: data: blob: ; connect-src *;">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="msapplication-tap-highlight" content="no">
-    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-    <link rel="stylesheet" href="libs/onsen/css/onsen-css-components.css">
-    <link rel="stylesheet" href="libs/onsen/css/onsenui.css">
-    <link rel="stylesheet" href="libs/fontawesome/fontawesome-all.min.css">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src * 'self' mailto:* data:* gap://* tel:* 'unsafe-inline' 'unsafe-eval' file://* ; script-src * 'unsafe-inline' 'unsafe-eval'; style-src * 'unsafe-inline'; media-src *;img-src * filesystem: cdvfile: data: blob: ; connect-src *;">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+  <link rel="stylesheet" href="libs/onsen/css/onsen-css-components.css">
+  <link rel="stylesheet" href="libs/onsen/css/onsenui.css">
+  <link rel="stylesheet" href="libs/fontawesome/fontawesome-all.min.css">
 
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <title>Motoristi</title>
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <title>Motoristi</title>
 </head>
 
 <body>
-    <script src="libs/onsen/js/onsenui.min.js"></script>
-    <ons-splitter>
-        <ons-splitter-side id="menu" side="left" width="260px" collapse swipeable>
-            <ons-page>
-                <ons-list class="menu-list-container">
-                    <ons-list-item tappable onclick="Settings.init()">
-                        <i class="fas fa-user-cog"></i><span>Profile</span>
-                    </ons-list-item>
+  <script src="libs/onsen/js/onsenui.min.js"></script>
+  <ons-splitter>
+    <ons-splitter-side id="menu" side="left" width="260px" collapse swipeable>
+      <ons-page>
+        <ons-list class="menu-list-container">
+          <ons-list-item tappable onclick="Settings.init()">
+            <i class="fas fa-user-cog"></i><span>Profile</span>
+          </ons-list-item>
 
-                    <ons-list-item tappable onclick="Home.init()">
-                        Home
-                    </ons-list-item>
-                    <ons-list-item tappable onclick="MyBookmarks.init()">
-                        My bookmarks
-                    </ons-list-item>
-                    <ons-list-item tappable onclick="UsersMap.init()">
-                        Map
-                    </ons-list-item>
-                    <ons-list-item tappable onclick="SocialWall.init()">
-                        Social Wall
-                    </ons-list-item>
-                    <ons-list-item tappable onclick="ChatGroups.init()">
-                        Chat Groups
-                    </ons-list-item>
-                    <ons-list-item tappable onclick="UsersList.init()">
-                        All users
-                    </ons-list-item>
-                    <ons-list-item tappable onclick="logout()">
-                        <i class="far fa-sign-out"></i><span>Sign Out</span>
-                    </ons-list-item>
-                </ons-list>
-            </ons-page>
-        </ons-splitter-side>
-        <ons-splitter-content>
-            <ons-navigator id="myNavigator" page="start-loading-page"></ons-navigator>
-        </ons-splitter-content>
-    </ons-splitter>
+          <ons-list-item tappable onclick="Home.init()">
+            Home
+          </ons-list-item>
+          <ons-list-item tappable onclick="MyBookmarks.init()">
+            My bookmarks
+          </ons-list-item>
+          <ons-list-item tappable onclick="UsersMap.init()">
+            Map
+          </ons-list-item>
+          <ons-list-item tappable onclick="SocialWall.init()">
+            Social Wall
+          </ons-list-item>
+          <ons-list-item tappable onclick="ChatGroups.init()">
+            Chat Groups
+          </ons-list-item>
+          <ons-list-item tappable onclick="UsersList.init()">
+            All users
+          </ons-list-item>
+          <ons-list-item tappable onclick="logout()">
+            <i class="far fa-sign-out"></i><span>Sign Out</span>
+          </ons-list-item>
+        </ons-list>
+      </ons-page>
+    </ons-splitter-side>
+    <ons-splitter-content>
+      <ons-navigator id="myNavigator" page="start-loading-page"></ons-navigator>
+    </ons-splitter-content>
+  </ons-splitter>
 
-    <template id="start-loading-page">
-        <ons-page class="startscreen-loading-page">
-            <div class="main-container start-loading-page-container">
+  <template id="start-loading-page">
+    <ons-page class="startscreen-loading-page">
+      <div class="main-container start-loading-page-container">
 
-                <div id="loading-page-normal-spinner" class="start-loading-page-outer">
-                    <div class="start-loading-page-inner">
-                        <ons-modal id="loading-modal-global" direction="up" style="background-color: rgba(242, 242, 242, .99);">
-                            <div style="text-align: center">
-                                <ons-progress-circular class="" indeterminate></ons-progress-circular>
-                            </div>
-                        </ons-modal>
-                    </div>
-                </div>
-            </div>
+        <div id="loading-page-normal-spinner" class="start-loading-page-outer">
+          <div class="start-loading-page-inner">
+            <ons-modal id="loading-modal-global" direction="up" style="background-color: rgba(242, 242, 242, .99);">
+              <div style="text-align: center">
+                <ons-progress-circular class="" indeterminate></ons-progress-circular>
+              </div>
+            </ons-modal>
+          </div>
+        </div>
+      </div>
 
-        </ons-page>
-    </template>
-    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-storage.js"></script>
-    <script src="libs/jquery/jquery-3.5.0.min.js"></script>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/navigation.js"></script>
-    <script type="text/javascript" src="js/functions.js"></script>
-    <script type="text/javascript" src="js/users.js"></script>
-    <script type="text/javascript" src="js/database.js"></script>
+    </ons-page>
+  </template>
+  <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOIQGI5P7gYJMARiunu8cY1soof8m92Mc"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-storage.js"></script>
+  <script src="libs/jquery/jquery-3.5.0.min.js"></script>
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/navigation.js"></script>
+  <script type="text/javascript" src="js/functions.js"></script>
+  <script type="text/javascript" src="js/users.js"></script>
+  <script type="text/javascript" src="js/database.js"></script>
 
-    <!-- all features -->
-    <script type="text/javascript" src="features/home.js"></script>
-    <script type="text/javascript" src="features/chatGroups.js"></script>
-    <script type="text/javascript" src="features/login.js"></script>
-    <script type="text/javascript" src="features/myBookmarks.js"></script>
-    <script type="text/javascript" src="features/settings.js"></script>
-    <script type="text/javascript" src="features/socialWall.js"></script>
-    <script type="text/javascript" src="features/usersList.js"></script>
-    <script type="text/javascript" src="features/usersMap.js"></script>
-    <script type="text/javascript" src="features/userDetails.js"></script>
-    <!-- all modules -->
-    <script type="text/javascript" src="modules/templates.module.js"></script>
-    <script type="text/javascript" src="modules/loading.module.js"></script>
-    <!-- all services -->
-    <script type="text/javascript" src="services/camera.service.js">
+  <!-- all features -->
+  <script type="text/javascript" src="features/home.js"></script>
+  <script type="text/javascript" src="features/chatGroups.js"></script>
+  <script type="text/javascript" src="features/login.js"></script>
+  <script type="text/javascript" src="features/myBookmarks.js"></script>
+  <script type="text/javascript" src="features/settings.js"></script>
+  <script type="text/javascript" src="features/socialWall.js"></script>
+  <script type="text/javascript" src="features/usersList.js"></script>
+  <script type="text/javascript" src="features/usersMap.js"></script>
+  <script type="text/javascript" src="features/userDetails.js"></script>
+  <!-- all modules -->
+  <script type="text/javascript" src="modules/templates.module.js"></script>
+  <script type="text/javascript" src="modules/loading.module.js"></script>
+  <!-- all services -->
+  <script type="text/javascript" src="services/camera.service.js">
 
-    </script>
+  </script>
 
-    <script type="text/javascript" src="js/index.js"></script>
-    <script>
-        ons.enableAutoStatusBarFill();
-        ons.disableAutoStyling();
-        app.initialize();
-    </script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script>
+    ons.enableAutoStatusBarFill();
+    ons.disableAutoStyling();
+    app.initialize();
+  </script>
 
 </body>
 

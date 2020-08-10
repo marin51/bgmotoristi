@@ -129,6 +129,11 @@ body.mb-preview-mode .page__content::-webkit-scrollbar-thumb {
     color: var(--bg-color);
 }
 
+#myNavigator #map {
+    width: 100vw;
+    height: calc(100vh - 44px);
+}
+
 @-moz-document url-prefix() {
     #myNavigator .page__content {
         scrollbar-width: none;

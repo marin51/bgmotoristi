@@ -212,7 +212,7 @@ const template = (function() {
                         </div>
                     </ons-toolbar>
                     <div class="main-container">
-                        <p>Users map works</p>
+                      <div id="map"></div>
                     </div>
                 </ons-page>
             </template>`
