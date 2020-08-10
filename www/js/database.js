@@ -13,7 +13,6 @@ firebase.initializeApp({
 const Database = (function() {
 
     function init() {
-        firebase.analytics();
         auth = firebase.auth();
         db = firebase.firestore();
         storage = firebase.storage();
@@ -33,7 +32,6 @@ const Database = (function() {
                 for (let i = 0; i < querySnapshot.docs.length; i += 1) {
                     let userData = querySnapshot.docs[i].data();
                     userData.id = querySnapshot.docs[i].id;
-                    console.log('userData', userData);
                     usersArray.push(userData);
                 }
                 Users.set(usersArray);

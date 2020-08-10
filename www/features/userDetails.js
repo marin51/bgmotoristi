@@ -47,8 +47,6 @@ const UserDetails = (function() {
             if ($('.user-details-page .main-container .image-container .preload-image').length) {
                 $('.user-details-page .main-container .image-container .preload-image').attr('src', userData.photo);
             }
-
-            console.log('details ' + userId);
         }
 
     }

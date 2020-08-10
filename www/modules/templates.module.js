@@ -210,6 +210,9 @@ const template = (function() {
                         <div class="center">
                             Map
                         </div>
+                        <div class="right">
+                            <i class="fal fa-map-marker-edit"></i>
+                        </div>
                     </ons-toolbar>
                     <div class="main-container">
                       <div id="map"></div>

@@ -39,29 +39,44 @@ const UsersMap = (function() {
                 markersArray = Coordinates.get().filter((coords) => {
                     if (coords.userId !== localStorage.getItem('logged_users_id')) { return coords; };
                 });
-            // map and my position
-            initMap();
-            initMarker(coords.latitude, coords.longitude, "You are here!", coords.timestamp);
-            //another users position
-            if (markersArray.length) {
-                for (let i = 0; i < markersArray.length; i++) {
-                    let userData = usersArray.filter((user) => {
-                        if (user.id === localStorage.getItem('logged_users_id')) { return user; };
-                    })[0];
-                    initMarker(markersArray[i].latitude, markersArray[i].longitude, `<span onclick="UserDetails.init('${userData.id}')">${userData.firstName} was here at </span>`, markersArray[i].timestamp)
+            loadMap();
+
+            document.querySelector('.toolbar .right').addEventListener('click', function() {
+                MapsService.getCurrentLocation().then(function() {
+                    coords = JSON.parse(localStorage.getItem('logged_user_position'));
+                    usersArray = Users.get();
+                    markersArray = Coordinates.get().filter((coords) => {
+                        if (coords.userId !== localStorage.getItem('logged_users_id')) { return coords; };
+                    });
+                    loadMap();
+                }, function(error) {
+                    ons.notification.alert('It seems you have to give permission from settings. Go to settings and allow to use location!');
+                    return;
+                });
+            });
+
+            function loadMap() {
+                initMap();
+                initMarker(coords.latitude, coords.longitude, "You are here!", coords.timestamp);
+                //another users position
+                if (markersArray.length) {
+                    for (let i = 0; i < markersArray.length; i++) {
+                        let userData = usersArray.filter((user) => {
+                            if (user.id === localStorage.getItem('logged_users_id')) { return user; };
+                        })[0];
+                        initMarker(markersArray[i].latitude, markersArray[i].longitude, `<span onclick="UserDetails.init('${userData.id}')">${userData.firstName} was here at </span>`, markersArray[i].timestamp)
+                    }
                 }
             }
-
 
             function initMap() {
                 map = new google.maps.Map(document.getElementById("map"), {
                     center: { lat: coords.latitude, lng: coords.longitude },
-                    zoom: 15
+                    zoom: 12
                 });
             }
 
             function initMarker(markerLatitude, markerLongitude, markerTitle, timePicked) {
-
                 let currentLocationMarker = new google.maps.Marker({
                     position: {
                         lat: markerLatitude,
