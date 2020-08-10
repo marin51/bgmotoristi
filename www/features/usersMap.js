@@ -3,8 +3,33 @@ const UsersMap = (function() {
     'use strict';
 
     function init() {
-        template.load('usersMap');
-        Navigation.load('users-map-ons-page', 'fade-ios', controller);
+        if (localStorage.getItem('logged_user_deny_access_to_location') == 1 || !localStorage.getItem('logged_user_position')) {
+            ons.notification.alert({
+                message: 'Please share your location first',
+                title: 'Oops!',
+                buttonLabels: ['Cancel', 'OK'],
+                primaryButtonIndex: 1
+            }).then(function(btnIndex) {
+                if (btnIndex === 1) {
+                    MapsService.getCurrentLocation().then(function() {
+                        loadModule();
+                    }, function(error) {
+                        ons.notification.alert('It seems you have to give permission from settings. Go to settings and allow to use location!');
+                        return;
+                    });
+                } else {
+                    ons.notification.alert('It seems you have to give permission from settings. Go to settings and allow to use location!');
+                    return;
+                }
+            });
+        } else {
+            loadModule();
+        }
+
+        function loadModule() {
+            template.load('usersMap');
+            Navigation.load('users-map-ons-page', 'fade-ios', controller);
+        }
 
         function controller() {
             Loading.hide();
