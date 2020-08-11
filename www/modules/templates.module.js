@@ -31,7 +31,12 @@ const template = (function() {
                     </div>
                 </ons-toolbar>
                 <div class="main-container">
-                  <p>home works</p>
+                  <img src="img/home-logo1.svg" alt="home cover"/>
+                  <div class="welcome-message">
+                    <h3>Welcome to Bulgarian Rockers App.</h3>
+                    <p>Here you can find each other on the map, share posts and chat in groups.</p>
+                    <p>Let's start.</p>
+                  </div>
                 </div>
               </ons-page>
             </template>`

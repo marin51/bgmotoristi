@@ -64,7 +64,7 @@ const UsersMap = (function() {
                         let userData = usersArray.filter((user) => {
                             if (user.id === localStorage.getItem('logged_users_id')) { return user; };
                         })[0];
-                        initMarker(markersArray[i].latitude, markersArray[i].longitude, `<span onclick="UserDetails.init('${userData.id}')">${userData.firstName} was here at </span>`, markersArray[i].timestamp)
+                        initMarker(markersArray[i].latitude, markersArray[i].longitude, `<span onclick="UserDetails.init('${userData.id}')">${userData.firstName}</span> was here at `, markersArray[i].timestamp)
                     }
                 }
             }

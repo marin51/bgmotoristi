@@ -1,0 +1,14 @@
+#myNavigator .home-page .page__content {
+    background: #eaeaea !important;
+}
+
+.home-page .main-container img {
+    width: 100vw;
+    height: auto;
+}
+
+.home-page .main-container .welcome-message {
+    text-align: center;
+    color: var(--main-text-color);
+    padding: 0 10px;
+}
