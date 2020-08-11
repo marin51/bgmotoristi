@@ -130,7 +130,9 @@ const template = (function() {
                 </ons-toolbar>
 
                     <div class="main-container">
-                        <p>my bookmarks works</p>
+                      <ons-list class="users-ons-list">
+                          <ons-lazy-repeat id="users-infinite-list"></ons-lazy-repeat>
+                      </ons-list>
                     </div>
                 </ons-page>
             </template>`

@@ -11,11 +11,13 @@ const UserDetails = (function() {
             })[0],
             allBookmarks = JSON.parse(localStorage.getItem('logged_user_bookmarks')) || [],
             isUserBookmarked,
-            detailsHTML;
+            mainProfileHTML,
+            sharedDataHTML,
+            bookmarkHTML;
 
         if (allBookmarks.length && allBookmarks.includes(userId)) { isUserBookmarked = true; }
 
-        detailsHTML = `
+        mainProfileHTML = `
         <div class="main-profile-info">
             <div class="names-container">
                 <div>
@@ -29,7 +31,9 @@ const UserDetails = (function() {
                 ${userData.photo ? `<img class="preload-image" src="img/loading.svg" />` : `
                 <div><i class="fal fa-user-circle"></i></div>`}
             </div>
-        </div>
+        </div>`;
+
+        sharedDataHTML = `
         <h5>Shared additional data</h5>
         <div class="sub-profile-info">
             ${userData.facebook ? `<div class="single-item" onclick='window.open("${validateLink(userData.facebook)}")'><div class="left"><i style="color:#4267B2" class="fab fa-facebook"></i></div> Facebook</div>` : ``}
@@ -38,31 +42,41 @@ const UserDetails = (function() {
             ${userData.email ? `<div class="single-item" onclick='window.open("mailto:${userData.email}","_system")'><div class="left"><i class="fas fa-at"></i></div> Email</div>` : ``}
             ${userData.phone ? `<div class="single-item" onclick='window.open("tel:${userData.phone}","_system")'><div class="left"><i class="far fa-mobile-android"></i></div> Mobile</div>` : ``}
             ${userData.link ? `<div class="single-item" onclick='window.open("${validateLink(userData.link)}")'><div class="left"><i class="fas fa-link"></i></div> Shared link</div>` : ``}
-        </div>
+        </div>`;
+
+        bookmarkHTML = `
         <h5>Bookmark ${userData.firstName}  ${userData.lastName}</h5>
         <div class="bookmark-section">
            ${isUserBookmarked ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>'}
         </div>`;
 
+        $($('#user-details-ons-page')[0])[0].content.querySelector('.main-container').innerHTML = mainProfileHTML;
 
-        $($('#user-details-ons-page')[0])[0].content.querySelector('.main-container').innerHTML = detailsHTML;
+        if (sharedDataHTML.indexOf('single-item') > -1) {
+            $($('#user-details-ons-page')[0])[0].content.querySelector('.main-container').innerHTML += sharedDataHTML;
+        }
+
+        $($('#user-details-ons-page')[0])[0].content.querySelector('.main-container').innerHTML += bookmarkHTML
 
         Navigation.push('user-details-ons-page', 'fade-ios', controller);
 
         function controller() {
-
-            if (!$('.user-details-page .main-container .sub-profile-info').text().trim().length) {
-                $('.user-details-page .main-container .sub-profile-info').html('<div class="empty-image-outher"><div class="empty-image-inner"><img src="img/empty-states/no_user_data.svg"></img><p>There is not shared information yet.</p></div></div>')
-            }
             Loading.hide();
             if ($('.user-details-page .main-container .image-container .preload-image').length) {
                 $('.user-details-page .main-container .image-container .preload-image').attr('src', userData.photo);
             }
 
+            $('.user-details-page .toolbar .toolbar-button').on('click', () => {
+                $(this).off('click');
+                if ($($('#myNavigator .page')[0]).hasClass('my-bookmarks-page')) {
+                    MyBookmarks.refreshList();
+                }
+            });
+
             $('.bookmark-section i').on('click', function() {
                 if ($(this).hasClass('fas')) {
                     $(this).fadeOut(250).removeClass('fas').fadeIn(250).addClass('far');
-                    let newResult = allBookmarks.filter((bookmark) => {
+                    const newResult = allBookmarks.filter((bookmark) => {
                         if (bookmark !== userId) { return bookmark; }
                     });
                     allBookmarks = newResult;
