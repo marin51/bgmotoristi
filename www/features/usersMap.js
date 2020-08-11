@@ -57,7 +57,7 @@ const UsersMap = (function() {
 
             function loadMap() {
                 initMap();
-                initMarker(coords.latitude, coords.longitude, "You are here!", coords.timestamp);
+                initMarker(coords.latitude, coords.longitude, "You are here!", coords.timestamp, 1);
                 //another users position
                 if (markersArray.length) {
                     for (let i = 0; i < markersArray.length; i++) {
@@ -76,16 +76,43 @@ const UsersMap = (function() {
                 });
             }
 
-            function initMarker(markerLatitude, markerLongitude, markerTitle, timePicked) {
-                let currentLocationMarker = new google.maps.Marker({
+            function initMarker(markerLatitude, markerLongitude, markerTitle, timePicked, currentUser) {
+
+                let currentLocationMarker,
+                    markerIcon,
+                    markersArray = [
+                        'img/map/helmet-red.svg',
+                        'img/map/helmet-blue.svg',
+                        'img/map/helmet-green.svg',
+                        'img/map/helmet-black.svg',
+                        'img/map/helmet-violet.svg',
+                        'img/map/helmet-white.svg',
+                        'img/map/helmet-yellow.svg',
+                    ];
+                if (currentUser === 1) {
+                    markerIcon = markersArray[0];
+                } else {
+                    markerIcon = markersArray[Math.floor(Math.random() * markersArray.length - 1) + 2];
+                }
+                console.log('markerIcon', markerIcon);
+
+
+                currentLocationMarker = new google.maps.Marker({
                     position: {
                         lat: markerLatitude,
                         lng: markerLongitude
                     },
                     animation: google.maps.Animation.DROP,
                     map: map,
-                    title: markerTitle
+                    title: markerTitle,
+                    icon: new google.maps.MarkerImage(
+                        markerIcon,
+                        new google.maps.Size(30, 30),
+                        new google.maps.Point(0, 0),
+                        new google.maps.Point(15, 15),
+                        new google.maps.Size(30, 30))
                 });
+
 
                 currentLocationMarker.addListener('click', function() {
                     map.setCenter(currentLocationMarker.getPosition());
