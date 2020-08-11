@@ -140,6 +140,11 @@ body.mb-preview-mode .page__content::-webkit-scrollbar-thumb {
     height: calc(100vh - 44px);
 }
 
+#myNavigator #map .map-popup span {
+    color: var(--bg-color);
+    text-decoration: underline;
+}
+
 @-moz-document url-prefix() {
     #myNavigator .page__content {
         scrollbar-width: none;
