@@ -82,3 +82,10 @@
     font-size: 5rem;
     color: var(--bg-color);
 }
+
+#myNavigator .user-details-page .main-container .bookmark-section {
+    text-align: center;
+    font-size: 2.5rem;
+    padding: 15px;
+    color: var(--bg-color);
+}
