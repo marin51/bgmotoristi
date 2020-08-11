@@ -22,7 +22,7 @@ const MapsService = (function() {
 
                     if (firebaseData.docs.length) {
                         let data = firebaseData.docs[0].data();
-                        db.collection('coords').doc(data.id).set({
+                        db.collection('coords').doc(data.id).update({
                             id: data.id,
                             userId: localStorage.getItem('logged_users_id'),
                             latitude: position.coords.latitude,

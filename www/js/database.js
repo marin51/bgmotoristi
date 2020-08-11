@@ -52,14 +52,15 @@ const Database = (function() {
         });
     }
 
-    function addImage(file) {
+    function addImage(file, path) {
+        if (!path) { path = `profile-images/${Math.floor(Math.random() * 10000)}_${file.name}`; }
         return new Promise((resolve, reject) => {
             // Create the file metadata
             var metadata = {
                 contentType: 'image/jpeg'
             };
             // Upload file and metadata to the object 'images/mountains.jpg'
-            var uploadTask = storage.ref().child(`profile-images/${Math.floor(Math.random() * 10000)}_${file.name}`).put(file, metadata);
+            var uploadTask = storage.ref().child(path).put(file, metadata);
             // Listen for state changes, errors, and completion of the upload.
             uploadTask.on('state_changed', // or firebase.storage.TaskEvent.STATE_CHANGED
                 function(snapshot) {

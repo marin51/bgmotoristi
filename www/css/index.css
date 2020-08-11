@@ -24,6 +24,10 @@
     height: 100vh;
 }
 
+:checked+.tabbar__button {
+    color: var(--bg-color);
+}
+
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;

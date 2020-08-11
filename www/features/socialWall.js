@@ -3,7 +3,8 @@ const SocialWall = (function() {
     'use strict';
 
     function init() {
-
+        template.load('socialWallPostsList');
+        template.load('socialWallAddNewPost');
         template.load('socialWall');
         Navigation.load('social-wall-ons-page', 'fade-ios', controller);
 

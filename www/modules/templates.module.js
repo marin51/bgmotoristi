@@ -163,21 +163,22 @@ const template = (function() {
             id: `social-wall-ons-page`,
             html: `
             <template id="social-wall-ons-page">
-                <ons-page class="social-wall-page">
-                    <ons-toolbar>
-                        <div class="left">
-                            <ons-toolbar-button onclick="Navigation.openMenu()">
-                                <ons-icon icon="md-menu"></ons-icon>
-                            </ons-toolbar-button>
-                        </div>
-                        <div class="center">
-                            Social Wall
-                        </div>
-                    </ons-toolbar>
-                    <div class="main-container">
-                        <p>social wall works</p>
-                    </div>
-                </ons-page>
+               <ons-page class="social-wall-page">
+                  <ons-toolbar>
+                     <div class="left">
+                        <ons-toolbar-button onclick="Navigation.openMenu()">
+                           <ons-icon icon="md-menu"></ons-icon>
+                        </ons-toolbar-button>
+                     </div>
+                     <div class="center">
+                        Social Wall
+                     </div>
+                  </ons-toolbar>
+                  <ons-tabbar swipeable position="auto">
+                     <ons-tab page="social-wall-posts-list-ons-page" icon="ion-home" active> </ons-tab>
+                     <ons-tab page="social-wall-add-new-post-ons-page" icon="ion-ios-plus-outline"> </ons-tab>
+                  </ons-tabbar>
+               </ons-page>
             </template>`
         },
         usersList: {
@@ -244,6 +245,28 @@ const template = (function() {
                     </ons-toolbar>
                     <div class="main-container">
                         <p>User details works</p>
+                    </div>
+                </ons-page>
+            </template>`
+        },
+        socialWallPostsList: {
+            id: `social-wall-posts-list-ons-page`,
+            html: `
+            <template id="social-wall-posts-list-ons-page">
+                <ons-page class="social-wall-posts-list-page">
+                    <div class="main-container">
+                        <p>Social wall list works</p>
+                    </div>
+                </ons-page>
+            </template>`
+        },
+        socialWallAddNewPost: {
+            id: `social-wall-add-new-post-ons-page`,
+            html: `
+            <template id="social-wall-add-new-post-ons-page">
+                <ons-page class="social-wall-add-new-post-page">
+                    <div class="main-container">
+                        <p>Add new post works</p>
                     </div>
                 </ons-page>
             </template>`
