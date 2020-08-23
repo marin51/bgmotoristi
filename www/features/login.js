@@ -22,7 +22,7 @@ const Login = (function() {
                         firstName: signUpForm['sign-up-first-name'].value,
                         lastName: signUpForm['sign-up-last-name'].value
                     }).then(() => {
-                        localStorage.setItem('logged_users_id', cred.user.uid);
+                        localStorage.setItem('logged_user_id', cred.user.uid);
                         Home.init();
                     });
                 }).catch((error) => {
@@ -46,7 +46,7 @@ const Login = (function() {
                 let email = loginForm['login-email'].value;
                 let password = loginForm['login-password'].value;
                 auth.signInWithEmailAndPassword(email, password).then((cred) => {
-                    localStorage.setItem('logged_users_id', cred.user.uid);
+                    localStorage.setItem('logged_user_id', cred.user.uid);
                 }, (error) => {
                     ons.notification.toast({
                         message: error.message,

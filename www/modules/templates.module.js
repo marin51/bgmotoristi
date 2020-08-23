@@ -174,7 +174,7 @@ const template = (function() {
                         Social Wall
                      </div>
                   </ons-toolbar>
-                  <ons-tabbar swipeable position="auto">
+                  <ons-tabbar class="social-wall-tabbar" position="auto">
                      <ons-tab page="social-wall-posts-list-ons-page" icon="ion-home" active> </ons-tab>
                      <ons-tab page="social-wall-add-new-post-ons-page" icon="ion-ios-plus-outline"> </ons-tab>
                   </ons-tabbar>
@@ -255,7 +255,9 @@ const template = (function() {
             <template id="social-wall-posts-list-ons-page">
                 <ons-page class="social-wall-posts-list-page">
                     <div class="main-container">
-                        <p>Social wall list works</p>
+                        <ons-list class="posts-list">
+                            <ons-lazy-repeat id="posts-infinite-list"></ons-lazy-repeat>
+                        </ons-list>
                     </div>
                 </ons-page>
             </template>`
@@ -266,7 +268,14 @@ const template = (function() {
             <template id="social-wall-add-new-post-ons-page">
                 <ons-page class="social-wall-add-new-post-page">
                     <div class="main-container">
-                        <p>Add new post works</p>
+
+                        <div class="textarea-container">
+                          <textarea class="textarea" placeholder="What is on your mind?"></textarea>
+                        </div>
+                        <div class="upload-image-button-container">
+                          <div><i class="fal fa-camera-alt"></i></div>
+                        </div>
+                        <div id="add-new-post-button"><button class="button">Publish</button></div>
                     </div>
                 </ons-page>
             </template>`

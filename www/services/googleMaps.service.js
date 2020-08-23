@@ -18,13 +18,13 @@ const MapsService = (function() {
                 if (localStorage.getItem('logged_user_deny_access_to_location')) {
                     localStorage.removeItem('logged_user_deny_access_to_location');
                 }
-                db.collection('coords').where("userId", "==", localStorage.getItem('logged_users_id')).limit(1).get().then(function(firebaseData) {
+                db.collection('coords').where("userId", "==", localStorage.getItem('logged_user_id')).limit(1).get().then(function(firebaseData) {
 
                     if (firebaseData.docs.length) {
                         let data = firebaseData.docs[0].data();
                         db.collection('coords').doc(data.id).update({
                             id: data.id,
-                            userId: localStorage.getItem('logged_users_id'),
+                            userId: localStorage.getItem('logged_user_id'),
                             latitude: position.coords.latitude,
                             longitude: position.coords.longitude,
                             timestamp: position.timestamp || new Date().getTime
@@ -33,7 +33,7 @@ const MapsService = (function() {
                         const ref = db.collection("coords").doc();
                         db.collection('coords').doc(ref.id).set({
                             id: ref.id,
-                            userId: localStorage.getItem('logged_users_id'),
+                            userId: localStorage.getItem('logged_user_id'),
                             latitude: position.coords.latitude,
                             longitude: position.coords.longitude,
                             timestamp: position.timestamp || new Date().getTime
@@ -43,7 +43,7 @@ const MapsService = (function() {
 
                 });
             }, function(error) {
-                alert(error);
+                alert(JSON.stringify(error));
                 localStorage.setItem('logged_user_deny_access_to_location', 1);
                 reject(error);
             });

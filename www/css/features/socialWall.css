@@ -1,0 +1,113 @@
+#myNavigator .social-wall-add-new-post-page .main-container {
+    margin: 50% auto;
+    text-align: center;
+}
+
+#myNavigator .social-wall-add-new-post-page .main-container.uploaded-image {
+    margin: 0;
+    padding-top: 10%;
+}
+
+#myNavigator .social-wall-add-new-post-page .main-container textarea {
+    width: 80%;
+    height: 15vh;
+    font-size: 1rem;
+    font-family: var(--app-font);
+    color: var(--main-text-color);
+}
+
+#myNavigator .social-wall-add-new-post-page .main-container .upload-image-button-container {
+    padding-top: 5%;
+    height: auto;
+}
+
+#myNavigator .social-wall-add-new-post-page .main-container .upload-image-button-container i {
+    font-size: 3rem;
+    color: var(--bg-color);
+}
+
+#myNavigator .social-wall-add-new-post-page .main-container .upload-image-button-container img {
+    max-width: 80%;
+    height: auto;
+}
+
+#myNavigator .social-wall-add-new-post-page .main-container #add-new-post-button {
+    padding-top: 5%;
+}
+
+.social-wall-posts-list-page .main-container ons-card {
+    padding: 10px;
+    border: 1px solid white;
+    font-family: var(--app-font);
+    background-color: white;
+}
+
+.social-wall-posts-list-page .main-container ons-card .post-title-container {
+    padding: 0;
+    font-family: var(--app-font);
+}
+
+.social-wall-posts-list-page .main-container ons-card .post-title-container .left img {
+    border-radius: 20%;
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin: 0;
+    object-fit: cover;
+}
+
+.social-wall-posts-list-page .main-container ons-card .post-title-container .center {
+    padding: 12px 6px 12px 0;
+    line-height: 1.2em;
+    min-height: 44px;
+    background-image: none !important;
+}
+
+.social-wall-posts-list-page .main-container ons-card .post-title-container .center .list-item__title {
+    font-family: var(--app-font);
+    font-size: 1.15rem;
+    color: var(--main-text-color);
+    padding-bottom: 5px;
+}
+
+.social-wall-posts-list-page .main-container ons-card .post-title-container .center .list-item__subtitle {
+    font-size: .85rem;
+    font-family: var(--app-font);
+    color: var(--main-text-color);
+    font-style: italic;
+}
+
+.social-wall-posts-list-page .main-container ons-card .post-content-container {
+    text-align: center;
+    position: relative;
+}
+
+.social-wall-posts-list-page .main-container ons-card .post-content-container .post-text-box {
+    text-align: left;
+    color: var(--main-text-color);
+    font-size: 1rem;
+    line-height: 40px;
+    font-family: var(--app-font);
+}
+
+.social-wall-posts-list-page .main-container ons-card .post-content-container .post-text-box p {}
+
+.social-wall-posts-list-page .main-container ons-card .post-content-container .post-image {
+    text-align: center;
+    position: relative;
+}
+
+.social-wall-posts-list-page .main-container ons-card .post-content-container .post-image img {
+    width: 100%;
+    border-radius: 5%;
+}
+
+#myNavigator .social-wall-posts-list-page .main-container ons-card .post-activities-counter span,
+#myNavigator .social-wall-posts-list-page .main-container ons-card .post-activities-counter i {
+    font-size: 1rem;
+    color: var(--bg-color);
+}
+
+#myNavigator .social-wall-posts-list-page .main-container ons-card .post-activity-option-buttons {
+    padding: 2px;
+}

@@ -41,7 +41,7 @@ const Database = (function() {
                 let coordsArray = [];
                 for (let i = 0; i < querySnapshot.docs.length; i += 1) {
                     let coordsData = querySnapshot.docs[i].data();
-                    if (coordsData.userId === localStorage.getItem('logged_users_id')) {
+                    if (coordsData.userId === localStorage.getItem('logged_user_id')) {
                         localStorage.setItem('logged_user_position', JSON.stringify(coordsData));
                     }
                     coordsData.id = querySnapshot.docs[i].id;

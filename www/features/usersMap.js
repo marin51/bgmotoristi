@@ -37,7 +37,7 @@ const UsersMap = (function() {
                 coords = JSON.parse(localStorage.getItem('logged_user_position')),
                 usersArray = Users.get(),
                 markersArray = Coordinates.get().filter((coords) => {
-                    if (coords.userId !== localStorage.getItem('logged_users_id')) { return coords; };
+                    if (coords.userId !== localStorage.getItem('logged_user_id')) { return coords; };
                 });
             loadMap();
 
@@ -46,7 +46,7 @@ const UsersMap = (function() {
                     coords = JSON.parse(localStorage.getItem('logged_user_position'));
                     usersArray = Users.get();
                     markersArray = Coordinates.get().filter((coords) => {
-                        if (coords.userId !== localStorage.getItem('logged_users_id')) { return coords; };
+                        if (coords.userId !== localStorage.getItem('logged_user_id')) { return coords; };
                     });
                     loadMap();
                 }, function(error) {
@@ -62,7 +62,7 @@ const UsersMap = (function() {
                 if (markersArray.length) {
                     for (let i = 0; i < markersArray.length; i++) {
                         let userData = usersArray.filter((user) => {
-                            if (user.id === localStorage.getItem('logged_users_id')) { return user; };
+                            if (user.id === localStorage.getItem('logged_user_id')) { return user; };
                         })[0];
                         initMarker(markersArray[i].latitude, markersArray[i].longitude, `<span onclick="UserDetails.init('${userData.id}')">${userData.firstName}</span> was here at `, markersArray[i].timestamp)
                     }

@@ -7,7 +7,7 @@ const Settings = (function() {
         template.load('settings');
 
         let userData = Users.get().filter((user) => {
-                return user.id === localStorage.getItem('logged_users_id');
+                return user.id === localStorage.getItem('logged_user_id');
             })[0],
             containerHTML = ``;
 
@@ -83,7 +83,7 @@ const Settings = (function() {
                 }
 
                 function updateUserProfileData() {
-                    db.collection('users').doc(localStorage.getItem('logged_users_id')).update(profileInfo).then(() => {
+                    db.collection('users').doc(localStorage.getItem('logged_user_id')).update(profileInfo).then(() => {
                         ons.notification.toast({
                             message: 'Successfully updated profile data',
                             timeout: 2000

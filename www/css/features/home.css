@@ -10,5 +10,5 @@
 .home-page .main-container .welcome-message {
     text-align: center;
     color: var(--main-text-color);
-    padding: 0 10px;
+    padding: 0 10px 20px;
 }
