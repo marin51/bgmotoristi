@@ -1,0 +1,54 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	0	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+:root	D:\web\Motoristi\www\css\index.css	/^:root {$/;"	function	line:7
+[class^='fa']	D:\web\Motoristi\www\css\index.css	/^[class^='fa'] {$/;"	function	line:15
+.hide	D:\web\Motoristi\www\css\index.css	/^.hide {$/;"	function	line:19
+#menu .menu-list-container	D:\web\Motoristi\www\css\index.css	/^#menu .menu-list-container {$/;"	function	line:23
+*	D:\web\Motoristi\www\css\index.css	/^* {$/;"	function	line:27
+html	D:\web\Motoristi\www\css\index.css	/^html {$/;"	function	line:33
+body	D:\web\Motoristi\www\css\index.css	/^body {$/;"	function	line:42
+body.mb-preview-mode .page__content::-webkit-scrollbar	D:\web\Motoristi\www\css\index.css	/^body.mb-preview-mode .page__content::-webkit-scrollbar {$/;"	function	line:46
+body.mb-preview-mode .page__content::-webkit-scrollbar-thumb	D:\web\Motoristi\www\css\index.css	/^body.mb-preview-mode .page__content::-webkit-scrollbar-thumb {$/;"	function	line:51
+#myNavigator .page__content	D:\web\Motoristi\www\css\index.css	/^#myNavigator .page__content {$/;"	function	line:55
+#myNavigator .toolbar	D:\web\Motoristi\www\css\index.css	/^#myNavigator .toolbar {$/;"	function	line:59
+#myNavigator .toolbar .center	D:\web\Motoristi\www\css\index.css	/^#myNavigator .toolbar .center,$/;"	function	line:65
+#myNavigator .toolbar .right	D:\web\Motoristi\www\css\index.css	/^#myNavigator .toolbar .right {$/;"	function	line:66
+#myNavigator .toolbar .right i	D:\web\Motoristi\www\css\index.css	/^#myNavigator .toolbar .right i {$/;"	function	line:74
+#myNavigator .toolbar .toolbar-button	D:\web\Motoristi\www\css\index.css	/^#myNavigator .toolbar .toolbar-button {$/;"	function	line:79
+#myNavigator h1	D:\web\Motoristi\www\css\index.css	/^#myNavigator h1 {$/;"	function	line:83
+#myNavigator h2	D:\web\Motoristi\www\css\index.css	/^#myNavigator h2 {$/;"	function	line:89
+#myNavigator h3	D:\web\Motoristi\www\css\index.css	/^#myNavigator h3 {$/;"	function	line:95
+#myNavigator h4	D:\web\Motoristi\www\css\index.css	/^#myNavigator h4 {$/;"	function	line:101
+#myNavigator h5	D:\web\Motoristi\www\css\index.css	/^#myNavigator h5 {$/;"	function	line:107
+#myNavigator p	D:\web\Motoristi\www\css\index.css	/^#myNavigator p {$/;"	function	line:113
+#myNavigator span	D:\web\Motoristi\www\css\index.css	/^#myNavigator span {$/;"	function	line:119
+#myNavigator .button	D:\web\Motoristi\www\css\index.css	/^#myNavigator .button {$/;"	function	line:125
+#myNavigator .button--quiet	D:\web\Motoristi\www\css\index.css	/^#myNavigator .button--quiet {$/;"	function	line:129
+#loading-modal-template .loading-icon	D:\web\Motoristi\www\css\index.css	/^#loading-modal-template .loading-icon {$/;"	function	line:133
+#myNavigator #map	D:\web\Motoristi\www\css\index.css	/^#myNavigator #map {$/;"	function	line:138
+#myNavigator #map .map-popup span	D:\web\Motoristi\www\css\index.css	/^#myNavigator #map .map-popup span {$/;"	function	line:143
+@-moz-document url-prefix()	D:\web\Motoristi\www\css\index.css	/^@-moz-document url-prefix() {$/;"	function	line:148
+#myNavigator .page__content	D:\web\Motoristi\www\css\index.css	/^    #myNavigator .page__content {$/;"	function	line:149
+.camera-api-options-sheet .action-sheet-button	D:\web\Motoristi\www\css\index.css	/^.camera-api-options-sheet .action-sheet-button {$/;"	function	line:154
+@media (min-width: 768px) and (max-width: 1200px)	D:\web\Motoristi\www\css\index.css	/^@media (min-width: 768px) and (max-width: 1200px) {$/;"	function	line:159
+html	D:\web\Motoristi\www\css\index.css	/^    html {$/;"	function	line:160
+#myNavigator .users-ons-list	D:\web\Motoristi\www\css\index.css	/^#myNavigator .users-ons-list {$/;"	function	line:166
+#myNavigator .users-ons-list .first-name	D:\web\Motoristi\www\css\index.css	/^#myNavigator .users-ons-list .first-name {$/;"	function	line:170
+#myNavigator .users-ons-list .last-name	D:\web\Motoristi\www\css\index.css	/^#myNavigator .users-ons-list .last-name {$/;"	function	line:181
+#myNavigator .users-ons-list .image-container	D:\web\Motoristi\www\css\index.css	/^#myNavigator .users-ons-list .image-container {$/;"	function	line:192
+#myNavigator .users-ons-list .image-container i	D:\web\Motoristi\www\css\index.css	/^#myNavigator .users-ons-list .image-container i {$/;"	function	line:196
+#myNavigator .users-ons-list .list-item	D:\web\Motoristi\www\css\index.css	/^#myNavigator .users-ons-list .list-item {$/;"	function	line:202
+#myNavigator .users-ons-list .list-item .left img	D:\web\Motoristi\www\css\index.css	/^#myNavigator .users-ons-list .list-item .left img {$/;"	function	line:209
+#myNavigator .users-ons-list .list-item .right i	D:\web\Motoristi\www\css\index.css	/^#myNavigator .users-ons-list .list-item .right i {$/;"	function	line:217
+#myNavigator .users-ons-list .list-item .left	D:\web\Motoristi\www\css\index.css	/^#myNavigator .users-ons-list .list-item .left {$/;"	function	line:222
+#myNavigator .users-ons-list .list-item .center	D:\web\Motoristi\www\css\index.css	/^#myNavigator .users-ons-list .list-item .center {$/;"	function	line:228
+#myNavigator .users-ons-list .list-item .right	D:\web\Motoristi\www\css\index.css	/^#myNavigator .users-ons-list .list-item .right {$/;"	function	line:234
+#myNavigator .main-container .empty-image-outher	D:\web\Motoristi\www\css\index.css	/^#myNavigator .main-container .empty-image-outher {$/;"	function	line:239
+#myNavigator .main-container .empty-image-inner	D:\web\Motoristi\www\css\index.css	/^#myNavigator .main-container .empty-image-inner {$/;"	function	line:246
+#myNavigator .main-container .empty-image-inner img	D:\web\Motoristi\www\css\index.css	/^#myNavigator .main-container .empty-image-inner img {$/;"	function	line:252
+#myNavigator .users-ons-list .list-item .right .bookmark	D:\web\Motoristi\www\css\index.css	/^#myNavigator .users-ons-list .list-item .right .bookmark {$/;"	function	line:257
+#myNavigator .users-ons-list .list-item .right .open-details	D:\web\Motoristi\www\css\index.css	/^#myNavigator .users-ons-list .list-item .right .open-details {$/;"	function	line:261
