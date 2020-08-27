@@ -93,9 +93,8 @@ const UsersMap = (function() {
                     markerIcon = markersArray[0];
                 } else {
                     markerIcon = markersArray[Math.floor(Math.random() * markersArray.length - 1) + 2];
+                    if (!markerIcon) { markersArray[6]; }
                 }
-                console.log('markerIcon', markerIcon);
-
 
                 currentLocationMarker = new google.maps.Marker({
                     position: {

@@ -67,7 +67,6 @@ const SocialWall = (function() {
                             }
 
                             if (change.type === "modified") {
-                                allPostsObject[change.doc.data().id] = change.doc.data();
                                 updatePostData(change.doc);
                             }
 
@@ -78,6 +77,7 @@ const SocialWall = (function() {
                         });
                     } else {
                         loadPosts(allPostsArray);
+                        setControlls();
                         setTimeout(() => {
                             preloadImages();
                         }, 0);
@@ -88,6 +88,33 @@ const SocialWall = (function() {
                 }, function(error) {
                     //TODO: show error message
                 });
+
+                function setControlls() {
+                    $('.post-activities-counter').off('click').on('click', function() {
+                        const postId = $(this).attr('data-id');
+                        let post = allPostsArray.filter(function(post) {
+                            if (post.id === postId) { return post; }
+                        })[0];
+                        var index = post.likedUsers.indexOf(localStorage.getItem('logged_user_id'));
+                        if (index > -1) {
+                            //dislike
+                            post.likedUsers.splice(index, 1);
+                        } else {
+                            //like
+                            post.likedUsers.push(localStorage.getItem('logged_user_id'));
+                        }
+                        SocialWallService.likePost(post);
+                        togglePostLikes(postId, post.likedUsers.length);
+
+                    });
+                }
+
+
+                function togglePostLikes(postId, likes) {
+
+                    $('.post-activities-counter[data-id="' + postId + '"] i').toggleClass(`fa-thumbs-up fa-thumbs-down`);
+                    $('.post-activities-counter[data-id="' + postId + '"] span').text(likes);
+                }
 
                 function updatePostData(post) {}
 
@@ -141,14 +168,14 @@ const SocialWall = (function() {
                                <div class="post-text-box">
                                   <p>${postText}</p>
                                </div>
-                               ${post.imageUrl ?`
+                               ${post.imageUrl ? `
                                <div class="post-image"><img src="img/loading.svg" alt="Post image" data-src=${post.imageUrl}/></div>
-                               ` :``}
+                               ` : ``}
                             </div>
                             <ons-list-item class="post-button-bar post-activity-option-buttons" modifier="nodivider">
                                 <div class="center">
-                                    <div class="post-activities-counter">
-                                        <span class="likes-number">${post.likedUsers.length}</span> ${post.likedUsers.indexOf(localStorage.getItem('logged_user_id')) > -1 ? `<i class="far fa-thumbs-down"></i> Dislike`: `<i class="far fa-thumbs-up"></i> Like`}
+                                    <div class="post-activities-counter" data-id="${post.id}">
+                                        <span class="likes-number">${post.likedUsers.length}</span> ${post.likedUsers.indexOf(localStorage.getItem('logged_user_id')) > -1 ? `<i class="far fa-thumbs-down"></i> Likes` : `<i class="far fa-thumbs-up"></i> Likes`}
                                     </div>
                                 </div>
                             </ons-list-item>
