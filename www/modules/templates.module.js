@@ -178,6 +178,7 @@ const template = (function() {
                      <ons-tab page="social-wall-posts-list-ons-page" icon="ion-home" active> </ons-tab>
                      <ons-tab page="social-wall-add-new-post-ons-page" icon="ion-ios-plus-outline"> </ons-tab>
                   </ons-tabbar>
+                  <ons-fab id="social-wall-fab" class=" hide" position="bottom right"><i class="far fa-bell"></i></ons-fab>
                </ons-page>
             </template>`
         },

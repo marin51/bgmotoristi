@@ -63,11 +63,13 @@ const SocialWall = (function() {
                     if ($('.social-wall-posts-list-page .single-post-container').length > 0) {
                         allPosts.docChanges().forEach(function(change) {
                             if (change.type === "added") {
-                                updateUnreadMessagesBadge();
+                                if (change.doc.data().userId !== localStorage.getItem('logged_user_id')) {
+                                    updateUnreadMessagesBadge();
+                                }
                             }
 
                             if (change.type === "modified") {
-                                updatePostData(change.doc);
+                                updatePostData(change.doc.data());
                             }
 
                             if (change.type === "removed") {
@@ -89,36 +91,29 @@ const SocialWall = (function() {
                     //TODO: show error message
                 });
 
-                function setControlls() {
-                    $('.post-activities-counter').off('click').on('click', function() {
-                        const postId = $(this).attr('data-id');
-                        let post = allPostsArray.filter(function(post) {
-                            if (post.id === postId) { return post; }
-                        })[0];
-                        var index = post.likedUsers.indexOf(localStorage.getItem('logged_user_id'));
-                        if (index > -1) {
-                            //dislike
-                            post.likedUsers.splice(index, 1);
-                        } else {
-                            //like
-                            post.likedUsers.push(localStorage.getItem('logged_user_id'));
+
+
+
+                function updatePostData(post) {
+                    $('.post-activities-counter[data-id="' + post.id + '"] span').text(post.likedUsers.length);
+                }
+
+                function updateUnreadMessagesBadge() {
+                    $('#social-wall-fab').removeClass('hide');
+                    $('#social-wall-fab').on('click', function() {
+                        $(this).off('click').addClass('hide');
+                        if (infiniteList) {
+                            Loading.show();
+                            loadPosts();
+                            preloadImages();
+                            setControlls();
+                            Loading.hide();
+                            infiniteList.refresh();
                         }
-                        SocialWallService.likePost(post);
-                        togglePostLikes(postId, post.likedUsers.length);
 
                     });
+
                 }
-
-
-                function togglePostLikes(postId, likes) {
-
-                    $('.post-activities-counter[data-id="' + postId + '"] i').toggleClass(`fa-thumbs-up fa-thumbs-down`);
-                    $('.post-activities-counter[data-id="' + postId + '"] span').text(likes);
-                }
-
-                function updatePostData(post) {}
-
-                function updateUnreadMessagesBadge() {}
 
                 function deletePost(post) {}
 
@@ -218,6 +213,7 @@ const SocialWall = (function() {
                             if (infiniteList) {
                                 infiniteList.refresh();
                                 preloadImages();
+                                setControlls();
                                 $('.social-wall-posts-list-page').scrollTop(0);
                             }
                         }, function(error) {
@@ -235,6 +231,7 @@ const SocialWall = (function() {
                             if (infiniteList) {
                                 infiniteList.refresh();
                                 preloadImages();
+                                setControlls();
                                 $('.social-wall-posts-list-page').scrollTop(0);
                             }
                         }, function(error) {
@@ -251,6 +248,26 @@ const SocialWall = (function() {
             function preloadImages() {
                 $.each($('.social-wall-posts-list-page .main-container ons-card img'), function(i, item) {
                     $(item).attr('src', $(item).attr('data-src'));
+                });
+            }
+
+            function setControlls() {
+                $('.post-activities-counter').off('click').on('click', function() {
+                    const postId = $(this).attr('data-id');
+                    let post = allPostsArray.filter(function(post) {
+                        if (post.id === postId) { return post; }
+                    })[0];
+                    var index = post.likedUsers.indexOf(localStorage.getItem('logged_user_id'));
+                    if (index > -1) {
+                        //dislike
+                        post.likedUsers.splice(index, 1);
+                    } else {
+                        //like
+                        post.likedUsers.push(localStorage.getItem('logged_user_id'));
+                    }
+                    SocialWallService.likePost(post);
+                    $('.post-activities-counter[data-id="' + post.id + '"] i').toggleClass(`fa-thumbs-up fa-thumbs-down`);
+
                 });
             }
 
