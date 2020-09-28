@@ -1,5 +1,5 @@
 /*jshint esversion: 6 */
-const ChatGroups = (function() {
+const ChatGroupsList = (function() {
     'use strict';
 
     function init() {

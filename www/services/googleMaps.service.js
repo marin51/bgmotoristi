@@ -29,17 +29,24 @@ const MapsService = (function() {
                             longitude: position.coords.longitude,
                             timestamp: position.timestamp || new Date().getTime
                         });
+                        resolve('Success');
                     } else {
                         const ref = db.collection("coords").doc();
-                        db.collection('coords').doc(ref.id).set({
-                            id: ref.id,
-                            userId: localStorage.getItem('logged_user_id'),
-                            latitude: position.coords.latitude,
-                            longitude: position.coords.longitude,
-                            timestamp: position.timestamp || new Date().getTime
-                        });
+                        const userId = localStorage.getItem('logged_user_id') || null;
+                        if (userId) {
+                            db.collection('coords').doc(ref.id).set({
+                                id: ref.id,
+                                userId: localStorage.getItem('logged_user_id'),
+                                latitude: position.coords.latitude,
+                                longitude: position.coords.longitude,
+                                timestamp: position.timestamp || new Date().getTime
+                            });
+                            resolve('Success');
+                        } else {
+                            reject('Invalid user!');
+                        }
+
                     }
-                    resolve('Success');
 
                 });
             }, function(error) {

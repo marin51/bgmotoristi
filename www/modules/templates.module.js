@@ -55,9 +55,54 @@ const template = (function() {
                         <div class="center">
                             Chat Groups
                         </div>
+                        <div onclick="addChat.init()" class="right">
+                            <i class="fal fa-comment-plus"></i>
+                        </div>
                     </ons-toolbar>
                     <div class="main-container">
                         <p>chat groups works</p>
+                    </div>
+                </ons-page>
+            </template>`
+        },
+        chatGroup: {
+            id: `chat-groups-ons-page`,
+            html: `
+            <template id="chat-group-ons-page">
+                <ons-page class="chat-group-page">
+                    <ons-toolbar>
+                      <ons-toolbar-button onclick="Navigation.pop()">
+                          <i class="fas fa-chevron-left"></i>
+                      </ons-toolbar-button>
+                        <div class="center">
+                            Chat Group
+                        </div>
+                        <div class="right">
+                        </div>
+                    </ons-toolbar>
+                    <div class="main-container">
+                        <p>chat group works</p>
+                    </div>
+                </ons-page>
+            </template>`
+        },
+        addChat: {
+            id: `add-chat-ons-page`,
+            html: `
+            <template id="add-chat-ons-page">
+                <ons-page class="add-chat-page">
+                    <ons-toolbar>
+                      <ons-toolbar-button onclick="Navigation.pop()">
+                          <i class="fas fa-chevron-left"></i>
+                      </ons-toolbar-button>
+                        <div class="center">
+                            Add Chat
+                        </div>
+                        <div class="right">
+                        </div>
+                    </ons-toolbar>
+                    <div class="main-container">
+                        <p>Add chat</p>
                     </div>
                 </ons-page>
             </template>`
