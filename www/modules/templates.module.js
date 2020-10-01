@@ -92,17 +92,27 @@ const template = (function() {
             <template id="add-chat-ons-page">
                 <ons-page class="add-chat-page">
                     <ons-toolbar>
-                      <ons-toolbar-button onclick="Navigation.pop()">
-                          <i class="fas fa-chevron-left"></i>
-                      </ons-toolbar-button>
-                        <div class="center">
-                            Add Chat
-                        </div>
-                        <div class="right">
-                        </div>
+                      <div class="left">
+                        <ons-toolbar-button onclick="Navigation.pop()">
+                            <i class="fas fa-chevron-left"></i>
+                        </ons-toolbar-button>
+                      </div>
+                      <div class="center">
+                          Add Chat
+                      </div>
+                      <div class="right">
+                      </div>
                     </ons-toolbar>
                     <div class="main-container">
-                        <p>Add chat</p>
+                      <div class="create-group-container">
+                          <div class="add-chat-cover-image"><i class="fal fa-users"></i></div>
+                          <ons-input placeholder="Name" modifier="underbar" maxlength="25" id="group-name"></ons-input>
+                          <ons-input placeholder="Description" modifier="underbar" maxlength="40" id="group-description"></ons-input>
+                          <div class="upload-cover-image-button-container">
+                              <ons-button modifier="quiet">Upload cover image</ons-button>
+                          </div>
+                          <div id="add-chat-group-button"><button class="button">Create</button></div>
+                      </div>
                     </div>
                 </ons-page>
             </template>`

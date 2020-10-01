@@ -1,0 +1,44 @@
+#myNavigator .add-chat-page .main-container {
+    margin: 40% auto;
+    text-align: center;
+}
+
+.add-chat-page .create-group-container {
+    padding: 20px;
+    text-align: center;
+}
+
+.add-chat-page .create-group-container .add-chat-cover-image {
+    font-size: 4rem;
+    color: var(--bg-color);
+    padding-bottom: 20px;
+}
+
+.add-chat-page .create-group-container ons-input {
+    width: 100%;
+}
+
+.add-chat-page .create-group-container ons-input input {
+    text-align: center;
+    color: var(--main-text-color);
+    font-family: var(--main-text-color);
+    font-size: 1rem;
+}
+
+.add-chat-page .create-group-container p {
+    font-family: var(--app-font);
+    font-size: 0.875rem;
+    margin-top: 30px;
+    color: var(--main-text-color);
+}
+
+#myNavigator .add-chat-page .create-group-container .upload-cover-image-button-container ons-button {
+    text-align: center;
+    font-size: 1rem;
+    background: transparent;
+    color: var(--main-text-color);
+}
+
+.add-chat-page .create-group-container #add-chat-group-button {
+    margin-top: 30px;
+}
