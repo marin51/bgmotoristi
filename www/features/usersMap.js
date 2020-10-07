@@ -40,6 +40,7 @@ const UsersMap = (function() {
                     if (coords.userId !== localStorage.getItem('logged_user_id')) { return coords; };
                 });
             loadMap();
+            $('#menu').removeAttr('swipeable');
 
             document.querySelector('.toolbar .right').addEventListener('click', function() {
                 MapsService.getCurrentLocation().then(function() {
@@ -92,8 +93,8 @@ const UsersMap = (function() {
                 if (currentUser === 1) {
                     markerIcon = markersArray[0];
                 } else {
-                    markerIcon = markersArray[Math.floor(Math.random() * markersArray.length - 1) + 2];
-                    if (!markerIcon) { markersArray[6]; }
+                    markerIcon = markersArray[Math.floor(Math.random() * 6)];
+                    if (!markerIcon) { markerIcon = markersArray[6]; }
                 }
 
                 currentLocationMarker = new google.maps.Marker({

@@ -55,7 +55,7 @@ const template = (function() {
                         <div class="center">
                             Chat Groups
                         </div>
-                        <div onclick="addChat.init()" class="right">
+                        <div onclick="AddChat.init()" class="right">
                             <i class="fal fa-comment-plus"></i>
                         </div>
                     </ons-toolbar>
@@ -71,14 +71,15 @@ const template = (function() {
             <template id="chat-group-ons-page">
                 <ons-page class="chat-group-page">
                     <ons-toolbar>
-                      <ons-toolbar-button onclick="Navigation.pop()">
-                          <i class="fas fa-chevron-left"></i>
-                      </ons-toolbar-button>
+                        <ons-toolbar-button onclick="Navigation.pop()">
+                            <i class="fas fa-chevron-left"></i>
+                        </ons-toolbar-button>
                         <div class="center">
-                            Chat Group
+                            <ons-list class="groups-list">
+                                <ons-lazy-repeat id="posts-infinite-list"></ons-lazy-repeat>
+                            </ons-list>
                         </div>
-                        <div class="right">
-                        </div>
+                        <div class="right"></div>
                     </ons-toolbar>
                     <div class="main-container">
                         <p>chat group works</p>

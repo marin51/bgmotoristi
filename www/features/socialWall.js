@@ -18,9 +18,6 @@ const SocialWall = (function() {
 
         function controller() {
 
-
-            console.log('socialWall');
-
             $('.social-wall-tabbar').on('postchange', function(event) {
 
                 switch (event.detail.activeIndex) {
@@ -39,7 +36,7 @@ const SocialWall = (function() {
             function postsListController() {
                 allUsersArray = Users.get();
                 console.log('posts list controller');
-                let postsCollection = SocialWallService.getRef();
+                postsCollection = SocialWallService.getRef();
 
                 postsCollection.orderBy("timestamp", "desc").onSnapshot(function(allPosts) {
                     allPostsArray = [];
@@ -137,12 +134,8 @@ const SocialWall = (function() {
                     var postHTML = '',
                         postText = '',
                         currentUser = allUsersArray.filter(function(user) {
-                            if (user.id === post.userId) {
-                                return user;
-                            }
+                            if (user.id === post.userId) { return user; }
                         })[0];
-                    console.log(currentUser);
-                    console.log(post);
 
                     if (post.text.length) {
                         postText = post.text.replace(/\n/g, "<br>");
@@ -275,7 +268,15 @@ const SocialWall = (function() {
 
     }
 
+    function destroy() {
+        if (postsCollection !== null && typeof postsCollection === 'function') {
+            postsCollection();
+            postsCollection = null;
+        }
+    }
+
     return {
-        init: init
+        init: init,
+        destroy: destroy
     };
 }());

@@ -8,7 +8,10 @@ const Navigation = (function() {
         if (currPageId === pageId) {
             return;
         }
+        //remove firebase hook
+        if (currPageId === 'social-wall-ons-page') { SocialWall.destroy(); }
         Loading.show();
+        $('#menu').attr('swipeable', true);
         let appMenu = document.getElementById('menu'),
             appNavigator = document.getElementById('myNavigator'),
             anim = 'fade-ios';
