@@ -19,36 +19,40 @@ const Database = (function() {
         auth.onAuthStateChanged(function(user) {
             if (user) {
                 // User is signed in.
-                console.log("User is signed in.");
-                console.log('user', user);
+                start();
                 Home.init();
+
             } else {
                 // User is signed out.
                 Login.init();
             }
 
-            db.collection('users').onSnapshot(function(querySnapshot) {
-                let usersArray = [];
-                for (let i = 0; i < querySnapshot.docs.length; i += 1) {
-                    let userData = querySnapshot.docs[i].data();
-                    userData.id = querySnapshot.docs[i].id;
-                    usersArray.push(userData);
-                }
-                Users.set(usersArray);
-            });
-
-            db.collection('coords').onSnapshot(function(querySnapshot) {
-                let coordsArray = [];
-                for (let i = 0; i < querySnapshot.docs.length; i += 1) {
-                    let coordsData = querySnapshot.docs[i].data();
-                    if (coordsData.userId === localStorage.getItem('logged_user_id')) {
-                        localStorage.setItem('logged_user_position', JSON.stringify(coordsData));
+            function start() {
+                db.collection('users').onSnapshot(function(querySnapshot) {
+                    let usersArray = [];
+                    for (let i = 0; i < querySnapshot.docs.length; i += 1) {
+                        let userData = querySnapshot.docs[i].data();
+                        userData.id = querySnapshot.docs[i].id;
+                        usersArray.push(userData);
                     }
-                    coordsData.id = querySnapshot.docs[i].id;
-                    coordsArray.push(coordsData);
-                }
-                Coordinates.set(coordsArray);
-            });
+                    Users.set(usersArray);
+                });
+
+                db.collection('coords').onSnapshot(function(querySnapshot) {
+                    let coordsArray = [];
+                    for (let i = 0; i < querySnapshot.docs.length; i += 1) {
+                        let coordsData = querySnapshot.docs[i].data();
+                        if (coordsData.userId === localStorage.getItem('logged_user_id')) {
+                            localStorage.setItem('logged_user_position', JSON.stringify(coordsData));
+                        }
+                        coordsData.id = querySnapshot.docs[i].id;
+                        coordsArray.push(coordsData);
+                    }
+                    Coordinates.set(coordsArray);
+                });
+            }
+
+
         });
     }
 
