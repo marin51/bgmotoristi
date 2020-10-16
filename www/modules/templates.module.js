@@ -60,30 +60,33 @@ const template = (function() {
                         </div>
                     </ons-toolbar>
                     <div class="main-container">
-                        <p>chat groups works</p>
+                        <ons-list class="groups-list"><ons-lazy-repeat id="groups-infinite-list"></ons-lazy-repeat></ons-list>
                     </div>
                 </ons-page>
             </template>`
         },
         chatGroup: {
-            id: `chat-groups-ons-page`,
+            id: `chat-group-ons-page`,
             html: `
             <template id="chat-group-ons-page">
                 <ons-page class="chat-group-page">
-                    <ons-toolbar>
-                        <ons-toolbar-button onclick="Navigation.pop()">
-                            <i class="fas fa-chevron-left"></i>
-                        </ons-toolbar-button>
-                        <div class="center">
-                            <ons-list class="groups-list">
-                                <ons-lazy-repeat id="posts-infinite-list"></ons-lazy-repeat>
-                            </ons-list>
-                        </div>
-                        <div class="right"></div>
-                    </ons-toolbar>
-                    <div class="main-container">
-                        <p>chat group works</p>
-                    </div>
+                  <ons-toolbar>
+                      <div class="left">
+                          <ons-toolbar-button onclick="Navigation.pop()">
+                              <i class="fas fa-chevron-left"></i>
+                          </ons-toolbar-button>
+                      </div>
+                      <div class="center">
+
+                      </div>
+                  </ons-toolbar>
+                  <div class="main-container">
+                      <div id="group-chat-messages-list"></div>
+                  </div>
+                  <ons-bottom-toolbar class="chat-form-container">
+                      <div class="text-area-container"><textarea id="group-chat-input" placeholder="" wrap="soft" rows="1"></textarea></div>
+                      <div class="send-button-container"><i class="fal fa-paper-plane"></i></div>
+                  </ons-bottom-toolbar>
                 </ons-page>
             </template>`
         },

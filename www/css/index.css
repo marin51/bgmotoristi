@@ -5,6 +5,7 @@
 @import "features/userDetails.css";
 @import "features/socialWall.css";
 @import "features/chatGroups.css";
+@import "features/chatList.css";
 
 :root {
     --bg-color: #000970;
