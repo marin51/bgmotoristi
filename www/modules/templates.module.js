@@ -59,6 +59,7 @@ const template = (function() {
                             <i class="fal fa-comment-plus"></i>
                         </div>
                     </ons-toolbar>
+                    <ons-pull-hook id="pull-hook"></ons-pull-hook>
                     <div class="main-container">
                         <ons-list class="groups-list"><ons-lazy-repeat id="groups-infinite-list"></ons-lazy-repeat></ons-list>
                     </div>

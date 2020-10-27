@@ -1,15 +1,21 @@
 /*jshint esversion: 6 */
-const Navigation = (function() {
+const Navigation = (function () {
     'use strict';
     let currPageId = '';
 
 
-    const loadPage = function(pageId, animation, controller) {
+    const loadPage = function (pageId, animation, controller) {
         if (currPageId === pageId) {
             return;
         }
+        console.log(currPageId);
         //remove firebase hook
-        if (currPageId === 'social-wall-ons-page') { SocialWall.destroy(); }
+        if (currPageId === 'social-wall-ons-page') {
+            SocialWall.destroy();
+        }
+        if (currPageId !== '') {
+            Chat.destroy();
+        }
         Loading.show();
         $('#menu').attr('swipeable', true);
         let appMenu = document.getElementById('menu'),
@@ -34,26 +40,37 @@ const Navigation = (function() {
         });
 
     };
-    const pushPage = function(page, anim, callbackFunction) {
+    const pushPage = function (page, anim, callbackFunction) {
         Loading.show();
         let appNavigator = document.getElementById('myNavigator'),
             pageAnimation = 'slide-ios';
-        if (anim === '') { pageAnimation = 'slide-ios'; } else { pageAnimation = anim; }
+        if (anim === '') {
+            pageAnimation = 'slide-ios';
+        } else {
+            pageAnimation = anim;
+        }
+        currPageId = page;
         document.getElementById('menu').close();
         appNavigator.pushPage(page, {
             animation: pageAnimation,
             callback: callbackFunction,
-            data: { moduleHash: page }
+            data: {moduleHash: page}
         });
     };
-    const openMenu = function() {
+    const openMenu = function () {
         let appMenu = document.getElementById('menu');
         appMenu.open();
     };
-    const popPage = function() {
+    const popPage = function () {
         let appNavigator = document.getElementById('myNavigator');
+        let lastPage = appNavigator.pages[appNavigator.pages.length - 1];
+
+        // clear chat hook
+        if (lastPage.classList.value.indexOf('chat-group-page') > -1) {
+            Chat.destroy();
+        }
         appNavigator.popPage({
-            callback: function() {
+            callback: function () {
                 console.log('Pop page...');
             }
         })

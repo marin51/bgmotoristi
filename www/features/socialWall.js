@@ -48,14 +48,12 @@ const SocialWall = (function() {
                     }
 
                     if (!allPosts.docs.length) {
-                        //TODO: show empty state
-                        return;
+                        $('.social-wall-posts-list-page .main-container').html(`<div class="empty-image-outher"><div class="empty-image-inner"><img src="img/empty-states/no_posts.svg"/><p>There are no posts yet! Add some from plus icon.</p></div></div>`);
                     } else {
-                        if ($('.social-wall-posts-list-page .empty-state-outer-container').length) {
+                        if ($('.social-wall-posts-list-page .empty-image-outher').length) {
                             $('.social-wall-posts-list-page .main-container').html('<ons-list class="post-list"><ons-lazy-repeat id="posts-infinite-list"></ons-lazy-repeat></ons-list>');
                         }
                     }
-
 
                     if ($('.social-wall-posts-list-page .single-post-container').length > 0) {
                         allPosts.docChanges().forEach(function(change) {

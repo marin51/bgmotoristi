@@ -102,7 +102,6 @@ const MyBookmarks = (function() {
             preloadImages();
             addClickEvents();
         } else {
-            console.log('no bookmarks');
             $('.my-bookmarks-page .main-container').html(`<div class="empty-image-outher"><div class="empty-image-inner"><img src="img/empty-states/no_bookmarks.svg"></img><p>There are no bookmarked users! Bookmark some from details page.</p></div></div>`);
             return;
         }
