@@ -25,6 +25,20 @@
 
 #menu .menu-list-container {
     height: 100vh;
+    padding: 0 10px;
+    font-family: var(--app-font);
+}
+
+#menu .menu-list-container .list-item {
+    border-bottom: 1px solid var(--bg-color);
+}
+
+#menu .list-item i {
+    width: 20px !important;
+    font-size: 1rem;
+    text-align: center;
+    color: var(-bg-color);
+    padding-right: 2rem;
 }
 
 :checked+.tabbar__button {
@@ -91,42 +105,49 @@ body.mb-preview-mode .page__content::-webkit-scrollbar-thumb {
     font-size: 2rem;
     padding: 0;
     margin: 0;
+    font-family: var(--app-font);
 }
 
 #myNavigator h2 {
     font-size: 1.75rem;
     padding: 0;
     margin: 0;
+    font-family: var(--app-font);
 }
 
 #myNavigator h3 {
     font-size: 1.5rem;
     padding: 0;
     margin: 0;
+    font-family: var(--app-font);
 }
 
 #myNavigator h4 {
     font-size: 1.25rem;
     padding: 0;
     margin: 0;
+    font-family: var(--app-font);
 }
 
 #myNavigator h5 {
     font-size: 1.125rem;
     padding: 0;
     margin: 0;
+    font-family: var(--app-font);
 }
 
 #myNavigator p {
     font-size: 1rem;
     padding: 0;
     margin: 0;
+    font-family: var(--app-font);
 }
 
 #myNavigator span {
     font-size: 0.875rem;
     padding: 0;
     margin: 0;
+    font-family: var(--app-font);
 }
 
 #myNavigator .button {

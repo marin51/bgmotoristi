@@ -20,15 +20,7 @@
 <html>
 
 <head>
-    <!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
+
     <meta http-equiv="Content-Security-Policy"
       content="default-src * 'self' mailto:* data:* gap://* tel:* 'unsafe-inline' 'unsafe-eval' file://* ; script-src * 'unsafe-inline' 'unsafe-eval'; style-src * 'unsafe-inline'; media-src *;img-src * filesystem: cdvfile: data: blob: ; connect-src *;">
     <meta name="format-detection" content="telephone=no">
@@ -53,22 +45,22 @@
                     </ons-list-item>
 
                     <ons-list-item tappable onclick="Home.init()">
-                        Home
+                        <i class="far fa-home-lg"></i><span>Home</span>
                     </ons-list-item>
                     <ons-list-item tappable onclick="MyBookmarks.init()">
-                        My bookmarks
+                        <i class="fas fa-stars"></i><span>My bookmarks</span>
                     </ons-list-item>
                     <ons-list-item tappable onclick="UsersMap.init()">
-                        Map
+                        <i class="fal fa-street-view"></i><span>Map</span>
                     </ons-list-item>
                     <ons-list-item tappable onclick="SocialWall.init()">
-                        Social Wall
+                        <i class="fal fa-photo-video"></i><span>Social Wall</span>
                     </ons-list-item>
                     <ons-list-item tappable onclick="ChatGroupsList.init()">
-                        Chat Groups
+                        <i class="fal fa-comments"></i><span>Chat Groups</span>
                     </ons-list-item>
                     <ons-list-item tappable onclick="UsersList.init()">
-                        All users
+                        <i class="fal fa-users"></i><span>All users</span>
                     </ons-list-item>
                     <ons-list-item tappable onclick="logout()">
                         <i class="far fa-sign-out"></i><span>Sign Out</span>
