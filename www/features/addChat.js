@@ -1,5 +1,5 @@
 // jshint esversion:6
-const AddChat = (function () {
+const AddChat = (function() {
     'use strict';
 
     function init() {
@@ -10,25 +10,33 @@ const AddChat = (function () {
         function controller() {
 
             Loading.hide();
-            $('.add-chat-page #add-chat-group-button button').on('click', function () {
+            $('.add-chat-page #add-chat-group-button button').on('click', function() {
                 const name = $('.add-chat-page #group-name').val(),
                     description = $('.add-chat-page #group-description').val(),
                     image = imageToUpload;
 
                 if (isValid()) {
+                    Loading.show();
                     if (image) {
                         ChatService.addGroupWithImage(image, name, description).then(() => {
                             ChatGroupsList.refreshList().then(() => {
                                 Navigation.pop();
+                                Loading.hide();
                             });
                         });
                     } else {
                         ChatService.addGroupWithoutImage(name, description).then(() => {
                             ChatGroupsList.refreshList().then(() => {
                                 Navigation.pop();
+                                Loading.hide();
                             });
                         });
                     }
+                } else {
+                    ons.notification.toast({
+                        message: 'Please, fill chat group name and description!',
+                        timeout: 2000
+                    });
                 }
 
                 function isValid() {
@@ -37,14 +45,14 @@ const AddChat = (function () {
                 }
             });
 
-            $('.add-chat-page .upload-cover-image-button-container ons-button').on('click', function () {
-                CameraService.showCameraActionSheet().then(function (imageUrl) {
+            $('.add-chat-page .upload-cover-image-button-container ons-button').on('click', function() {
+                CameraService.showCameraActionSheet().then(function(imageUrl) {
                     imageToUpload = b64toBlob(imageUrl);
                     imageToUpload.name = `image_${Date.now()}`;
 
                     $('.add-chat-page .upload-cover-image-button-container').html(`<img class="cover-image" src="data:image/jpeg;base64,${imageUrl}" />`);
                     //$('.social-wall-add-new-post-page .main-container').addClass('uploaded-image');
-                }, function (error) {
+                }, function(error) {
                     console.log('error', error);
                 });
             });

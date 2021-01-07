@@ -1,5 +1,5 @@
 /*jshint esversion: 6 */
-const ChatGroupsList = (function () {
+const ChatGroupsList = (function() {
     'use strict';
 
     let allGroupsArray = [],
@@ -14,7 +14,7 @@ const ChatGroupsList = (function () {
         function controller() {
             Loading.hide();
             groupCollection = ChatService.getRef();
-            groupCollection.orderBy('name').get().then(function (groups) {
+            groupCollection.orderBy('name').get().then(function(groups) {
                 allGroupsArray = [];
                 if (groups.docs.length) {
 
@@ -27,9 +27,7 @@ const ChatGroupsList = (function () {
                     }
 
                     loadChatGroups();
-                    setTimeout(() => {
-                        preloadImages();
-                    }, 0);
+                    setTimeout(() => { preloadImages(); }, 0);
                     Loading.hide();
 
                 } else {
@@ -37,12 +35,12 @@ const ChatGroupsList = (function () {
                     $('.chat-groups-page .main-container').html(`<div class="empty-image-outher"><div class="empty-image-inner"><img src="img/empty-states/no_groups.svg"/><p>There are no chat groups! Add first group from plus button.</p></div></div>`);
                 }
 
-                $('#myNavigator .groups-list .list-item ').on('click', function () {
+                $('#myNavigator .groups-list .list-item ').on('click', function() {
                     Chat.init($(this).attr('data-id'));
                 });
             });
             const pullHook = document.getElementById('pull-hook');
-            pullHook.addEventListener('changestate', function (event) {
+            pullHook.addEventListener('changestate', function(event) {
                 let message = '';
 
                 switch (event.state) {
@@ -58,9 +56,11 @@ const ChatGroupsList = (function () {
                 }
                 pullHook.innerHTML = message;
             });
-            pullHook.onAction = function (done) {
-                console.log('reload');
+            pullHook.onAction = function(done) {
                 refreshList().then(() => {
+                    $('#myNavigator .groups-list .list-item ').on('click', function() {
+                        Chat.init($(this).attr('data-id'));
+                    });
                     done();
                 }, error => {
                     console.log(error);
@@ -73,7 +73,7 @@ const ChatGroupsList = (function () {
     }
 
     function preloadImages() {
-        $.each($('.chat-groups-page .main-container img'), function (i, item) {
+        $.each($('.chat-groups-page .main-container img'), function(i, item) {
             $(item).attr('src', $(item).attr('data-src'));
         });
     }
@@ -84,10 +84,10 @@ const ChatGroupsList = (function () {
             return;
         }
         infiniteList.delegate = {
-            createItemContent: function (i) {
+            createItemContent: function(i) {
                 return ons.createElement(buildListItemHTML(i));
             },
-            countItems: function () {
+            countItems: function() {
                 return allGroupsArray.length;
             }
         };
@@ -123,7 +123,7 @@ const ChatGroupsList = (function () {
                     }
                 }
                 loadChatGroups();
-                preloadImages();
+                setTimeout(() => { preloadImages(); }, 0);
                 resolve('done!');
             }).catch(error => {
                 reject(error);
@@ -133,8 +133,8 @@ const ChatGroupsList = (function () {
 
     return {
         init: init,
-        getGroupById: function (id) {
-            return allGroupsArray.filter(function (group) {
+        getGroupById: function(id) {
+            return allGroupsArray.filter(function(group) {
                 return group.id === id;
             })[0] || {};
         },

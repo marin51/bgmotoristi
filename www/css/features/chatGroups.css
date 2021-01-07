@@ -33,6 +33,16 @@
     color: var(--main-text-color);
 }
 
+.add-chat-page .create-group-container .upload-cover-image-button-container {
+    padding-top: 5%;
+    height: auto;
+}
+
+.add-chat-page .create-group-container .upload-cover-image-button-container .cover-image {
+    max-width: 80%;
+    height: auto;
+}
+
 #myNavigator .add-chat-page .create-group-container .upload-cover-image-button-container ons-button {
     text-align: center;
     font-size: 1rem;
@@ -166,6 +176,7 @@
     user-select: none;
     outline: none;
     border: 1px solid var(--bg-color);
+    font-family: var(--app-font);
 }
 
 #myNavigator .chat-group-page .chat-form-container div.send-button-container {
@@ -222,6 +233,7 @@
     margin: 2% 30%;
     background-color: var(--text-color);
     color: var(--bg-color);
+    font-family: var(--app-font);
 }
 
 #myNavigator .chat-group-page .main-container #group-chat-messages-list .single-message-container.reciever {
@@ -229,6 +241,7 @@
     color: var(--main-bg-color);
     text-align: left;
     margin: 2% 0;
+    font-family: var(--app-font);
 }
 
 /* SINGLE CHAT ROOM END */
