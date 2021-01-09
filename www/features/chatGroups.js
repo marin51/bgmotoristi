@@ -35,7 +35,7 @@ const ChatGroupsList = (function() {
                     $('.chat-groups-page .main-container').html(`<div class="empty-image-outher"><div class="empty-image-inner"><img src="img/empty-states/no_groups.svg"/><p>There are no chat groups! Add first group from plus button.</p></div></div>`);
                 }
 
-                $('#myNavigator .groups-list .list-item ').on('click', function() {
+                $('#myNavigator .groups-list .list-item').on('click', function() {
                     Chat.init($(this).attr('data-id'));
                 });
             });
@@ -58,7 +58,7 @@ const ChatGroupsList = (function() {
             });
             pullHook.onAction = function(done) {
                 refreshList().then(() => {
-                    $('#myNavigator .groups-list .list-item ').on('click', function() {
+                    $('#myNavigator .groups-list .list-item').on('click', function() {
                         Chat.init($(this).attr('data-id'));
                     });
                     done();

@@ -29,6 +29,7 @@ const AddChat = (function() {
                             ChatGroupsList.refreshList().then(() => {
                                 Navigation.pop();
                                 Loading.hide();
+                                setTimeout(function() { $('#myNavigator .groups-list .list-item').on('click', function() { Chat.init($(this).attr('data-id')); }); }, 0);
                             });
                         });
                     }
