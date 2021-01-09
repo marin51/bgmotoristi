@@ -20,7 +20,8 @@ const Login = (function() {
                 auth.createUserWithEmailAndPassword(email, password).then((cred) => {
                     return db.collection('users').doc(cred.user.uid).set({
                         firstName: signUpForm['sign-up-first-name'].value,
-                        lastName: signUpForm['sign-up-last-name'].value
+                        lastName: signUpForm['sign-up-last-name'].value,
+                        email: email
                     }).then(() => {
                         localStorage.setItem('logged_user_id', cred.user.uid);
                         Home.init();

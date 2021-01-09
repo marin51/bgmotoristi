@@ -108,7 +108,7 @@
     width: 55px;
     height: 55px;
     border-radius: 20%;
-    object-fit: contain;
+    object-fit: cover;
     background-color: var(--succevo);
 }
 

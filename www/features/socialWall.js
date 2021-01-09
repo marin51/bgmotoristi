@@ -100,7 +100,8 @@ const SocialWall = (function() {
                         if (infiniteList) {
                             Loading.show();
                             loadPosts();
-                            preloadImages();
+                            setTimeout(function() { preloadImages(); }, 0);
+
                             setControlls();
                             Loading.hide();
                             infiniteList.refresh();
