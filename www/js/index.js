@@ -38,6 +38,16 @@ const app = {
         setTimeout(function() {
             Database.init();
             document.querySelector('#loading-modal-global').show();
+            ons.ready(function() {
+                ons.disableDeviceBackButtonHandler();
+                document.addEventListener('backbutton', function() {
+                    if ($('#myNavigator').children().length > 1) {
+                        Navigation.back();
+                    } else {
+                        navigator.app.exitApp();
+                    }
+                }, true);
+            });
         }, 0);
     }
 };

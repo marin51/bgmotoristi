@@ -22,7 +22,7 @@ const SocialWall = (function() {
 
                 switch (event.detail.activeIndex) {
                     case 0:
-                        postsListController();
+                        // postsListController();
                         break;
                     case 1:
                         newPostController();
@@ -35,15 +35,14 @@ const SocialWall = (function() {
 
             function postsListController() {
                 allUsersArray = Users.get();
-                console.log('posts list controller');
                 postsCollection = SocialWallService.getRef();
 
                 postsCollection.orderBy("timestamp", "desc").onSnapshot(function(allPosts) {
                     allPostsArray = [];
+
                     for (var post in allPosts.docs) {
                         if (allPosts.docs.hasOwnProperty(post)) {
-                            var element = allPosts.docs[post].data();
-                            allPostsArray.push(element);
+                            allPostsArray.push(allPosts.docs[post].data());
                         }
                     }
 
@@ -73,21 +72,14 @@ const SocialWall = (function() {
 
                         });
                     } else {
-                        loadPosts(allPostsArray);
+                        loadPosts();
                         setControlls();
-                        setTimeout(() => {
-                            preloadImages();
-                        }, 0);
                         Loading.hide();
-
                     }
 
                 }, function(error) {
                     //TODO: show error message
                 });
-
-
-
 
                 function updatePostData(post) {
                     $('.post-activities-counter[data-id="' + post.id + '"] span').text(post.likedUsers.length);
@@ -100,11 +92,8 @@ const SocialWall = (function() {
                         if (infiniteList) {
                             Loading.show();
                             loadPosts();
-                            setTimeout(function() { preloadImages(); }, 0);
-
                             setControlls();
                             Loading.hide();
-                            infiniteList.refresh();
                         }
 
                     });
@@ -119,6 +108,7 @@ const SocialWall = (function() {
                     if (infiniteList !== null) {
                         infiniteList.delegate = {
                             createItemContent: function(i) {
+                                setTimeout(function() { preloadImages(); }, 0);
                                 return ons.createElement(generatePostHtml(allPostsArray[i]));
                             },
                             countItems: function() {
@@ -173,8 +163,6 @@ const SocialWall = (function() {
             }
 
             function newPostController() {
-
-                console.log('add new post contoroller');
                 $('.social-wall-add-new-post-page .main-container .upload-image-button-container').off('click').on('click', function() {
                     CameraService.showCameraActionSheet().then(function(imageUrl) {
                         imageToUpload = b64toBlob(imageUrl);
@@ -204,7 +192,6 @@ const SocialWall = (function() {
                             document.querySelector('.social-wall-tabbar').setActiveTab(0);
                             if (infiniteList) {
                                 infiniteList.refresh();
-                                preloadImages();
                                 setControlls();
                                 $('.social-wall-posts-list-page').scrollTop(0);
                             }
@@ -222,7 +209,6 @@ const SocialWall = (function() {
                             document.querySelector('.social-wall-tabbar').setActiveTab(0);
                             if (infiniteList) {
                                 infiniteList.refresh();
-                                preloadImages();
                                 setControlls();
                                 $('.social-wall-posts-list-page').scrollTop(0);
                             }

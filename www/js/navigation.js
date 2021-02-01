@@ -13,7 +13,7 @@ const Navigation = (function () {
         if (currPageId === 'social-wall-ons-page') {
             SocialWall.destroy();
         }
-        if (currPageId !== '') {
+        if (currPageId !== 'chat-group-page') {
             Chat.destroy();
         }
         Loading.show();
