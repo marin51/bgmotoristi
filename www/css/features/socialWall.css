@@ -112,10 +112,16 @@
     border-radius: 5%;
 }
 
-#myNavigator .social-wall-posts-list-page .main-container ons-card .post-activities-counter span,
-#myNavigator .social-wall-posts-list-page .main-container ons-card .post-activities-counter i {
+#myNavigator .social-wall-posts-list-page .main-container ons-card .post-likes-counter span,
+#myNavigator .social-wall-posts-list-page .main-container ons-card .post-likes-counter i,
+#myNavigator .social-wall-posts-list-page .main-container ons-card .post-comments-counter span,
+#myNavigator .social-wall-posts-list-page .main-container ons-card .post-comments-counter i {
     font-size: 1rem;
     color: var(--bg-color);
+}
+
+#myNavigator .social-wall-posts-list-page .main-container ons-card .post-likes-counter {
+    margin-right: 10px;
 }
 
 #myNavigator .social-wall-posts-list-page .main-container ons-card .post-activity-option-buttons {
@@ -129,4 +135,105 @@
 
 #social-wall-fab i {
     font-size: 1.5rem;
+}
+
+/* social wall comments start */
+#myNavigator .add-comment-page .add-post-comment-form-container {
+    background: linear-gradient(180deg, rgba(230, 230, 230, 1) 46%, rgba(206, 206, 206, 1) 79%, rgba(161, 161, 161, 1) 100%);
+    color: var(--bg-color);
+}
+
+#myNavigator .add-comment-page .add-post-comment-form-container div.text-area-container {
+    display: inline-block;
+    width: 92%;
+    height: 100%;
+    font-family: var(--app-font);
+    font-size: 1rem;
+    padding: 0px 10px 0px 0px;
+}
+
+#myNavigator .add-comment-page .add-post-comment-form-container div.text-area-container textarea {
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+    overflow: hidden;
+    background-image: none;
+    user-select: none;
+    outline: none;
+    border: 1px solid var(--bg-color);
+    font-family: var(--app-font);
+}
+
+#myNavigator .add-comment-page .add-post-comment-form-container div.send-comment-button-container {
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: var(--bg-color);
+}
+
+#myNavigator .add-comment-page .add-post-comment-form-container div.send-comment-button-container i {
+    position: relative;
+    font-size: 1.5rem;
+    top: 20%;
+}
+
+#myNavigator .add-comment-page .main-container {
+    width: 100%;
+    height: 100%;
+}
+
+#myNavigator .add-comment-page .main-container #social-wall-comments-list {
+    margin: 10px;
+}
+
+#myNavigator .add-comment-page .main-container #social-wall-comments-list .single-comment-container {
+    padding: 5px 0;
+    border-radius: 5px;
+    width: 70%;
+}
+
+#myNavigator .add-comment-page .main-container #social-wall-comments-list .single-comment-container div {
+    padding: 5px;
+}
+
+#myNavigator .add-comment-page .main-container #social-wall-comments-list .single-comment-container div.comment-text {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+#myNavigator .add-comment-page .main-container #social-wall-comments-list .single-comment-container div.comment-sender i {
+    font-size: 34px;
+}
+
+#myNavigator .add-comment-page .main-container #social-wall-comments-list .single-comment-container div.comment-sender img {
+    width: 34px;
+    height: 34px;
+    object-fit: cover;
+    border-radius: 17px;
+}
+
+#myNavigator .add-comment-page .main-container #social-wall-comments-list .single-comment-container div.comment-sender span {
+    padding-left: 5px;
+    line-height: 37px;
+}
+
+#myNavigator .add-comment-page .main-container #social-wall-comments-list .single-comment-container div.comment-sender {
+    font-size: 0.825rem;
+    font-weight: 600;
+    display: flex;
+}
+
+#myNavigator .add-comment-page .main-container #social-wall-comments-list .single-comment-container div.comment-time {
+    font-size: 0.75rem;
+    font-weight: 400;
+    font-style: italic;
+}
+
+#myNavigator .add-comment-page .main-container #social-wall-comments-list .single-comment-container {
+    text-align: left;
+    margin: 2% 0;
+    font-family: var(--app-font);
+    background-color: var(--text-color);
+    color: var(--bg-color);
 }

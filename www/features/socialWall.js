@@ -82,7 +82,8 @@ const SocialWall = (function() {
                 });
 
                 function updatePostData(post) {
-                    $('.post-activities-counter[data-id="' + post.id + '"] span').text(post.likedUsers.length);
+                    $('.post-likes-counter[data-id="' + post.id + '"] span').text(post.likedUsers.length);
+                    $('.post-comments-counter[data-id="' + post.id + '"] span').text(post.comments);
                 }
 
                 function updateUnreadMessagesBadge() {
@@ -151,9 +152,13 @@ const SocialWall = (function() {
                             </div>
                             <ons-list-item class="post-button-bar post-activity-option-buttons" modifier="nodivider">
                                 <div class="center">
-                                    <div class="post-activities-counter" data-id="${post.id}">
+                                    <div class="post-likes-counter" data-id="${post.id}">
                                         <span class="likes-number">${post.likedUsers.length}</span> ${post.likedUsers.indexOf(localStorage.getItem('logged_user_id')) > -1 ? `<i class="far fa-thumbs-down"></i> Likes` : `<i class="far fa-thumbs-up"></i> Likes`}
                                     </div>
+                                    <div class="post-comments-counter" data-id="${post.id}">
+                                        <span class="likes-number">${post.comments}</span> <i class="fal fa-comments"></i> Comments
+                                    </div>
+
                                 </div>
                             </ons-list-item>
                          </ons-card>`;
@@ -230,7 +235,7 @@ const SocialWall = (function() {
             }
 
             function setControlls() {
-                $('.post-activities-counter').off('click').on('click', function() {
+                $('.post-likes-counter').off('click').on('click', function() {
                     const postId = $(this).attr('data-id');
                     let post = allPostsArray.filter(function(post) {
                         if (post.id === postId) { return post; }
@@ -244,9 +249,15 @@ const SocialWall = (function() {
                         post.likedUsers.push(localStorage.getItem('logged_user_id'));
                     }
                     SocialWallService.likePost(post);
-                    $('.post-activities-counter[data-id="' + post.id + '"] i').toggleClass(`fa-thumbs-up fa-thumbs-down`);
+                    $('.post-likes-counter[data-id="' + post.id + '"] i').toggleClass(`fa-thumbs-up fa-thumbs-down`);
 
                 });
+                $('.post-comments-counter').off('click').on('click', function() {
+                    const postId = $(this).attr('data-id');
+                    PostComments.init(postId);
+
+                });
+
             }
 
         }

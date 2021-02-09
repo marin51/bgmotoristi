@@ -1,7 +1,8 @@
 /*jshint esversion: 6 */
 const SocialWallService = (function() {
     'use strict';
-    let socialWallRef;
+    let socialWallRef = null,
+        postCommentsRef = null;
 
     function getRef() {
         if (socialWallRef) {
@@ -9,6 +10,15 @@ const SocialWallService = (function() {
         } else {
             socialWallRef = db.collection('social');
             return socialWallRef;
+        }
+    }
+
+    function getPostCommentsRef() {
+        if (postCommentsRef) {
+            return postCommentsRef;
+        } else {
+            postCommentsRef = db.collection('comments');
+            return postCommentsRef;
         }
     }
 
@@ -21,6 +31,7 @@ const SocialWallService = (function() {
                 postObject.text = postText;
                 postObject.userId = localStorage.getItem('logged_user_id');
                 postObject.likedUsers = [];
+                postObject.comments = 0;
                 postObject.timestamp = new Date().getTime();
                 postObject.imageUrl = fileUrl;
 
@@ -47,6 +58,7 @@ const SocialWallService = (function() {
             postObject.text = postText;
             postObject.userId = localStorage.getItem('logged_user_id');
             postObject.likedUsers = [];
+            postObject.comments = 0;
             postObject.timestamp = new Date().getTime();
 
             getRef().doc(postRef.id).set(postObject).then(function(success) {
@@ -57,10 +69,37 @@ const SocialWallService = (function() {
         });
     }
 
+    function addPostComment(commentMessage, postId) {
+        return new Promise(function(resolve, reject) {
+            let commentObject = {};
+            const postCommentRef = getPostCommentsRef().doc();
+            const postRef = getRef().doc(postId);
+            commentObject.id = postCommentRef.id;
+            commentObject.postId = postId;
+            commentObject.userId = localStorage.getItem('logged_user_id');
+            commentObject.text = commentMessage;
+            commentObject.timestamp = new Date().getTime();
+            postRef.get().then(function(res) {
+                getPostCommentsRef().doc(postCommentRef.id).set(commentObject).then(function(success) {
+                    postRef.update({ comments: res.data().comments += 1 }).then(function(success) {
+                        resolve(success);
+                    }).catch(function(error) {
+                        reject(error);
+                    });
+                }).catch(function(error) {
+                    reject(error);
+                });
+            });
+
+        });
+    }
+
     return {
         getRef: getRef,
+        getPostCommentsRef: getPostCommentsRef,
         addPostWithImage: addPostWithImage,
         addPostWithOutImage: addPostWithOutImage,
         likePost: likePost,
+        addPostComment: addPostComment
     };
 })();

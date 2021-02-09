@@ -8,13 +8,15 @@ const Navigation = (function () {
         if (currPageId === pageId) {
             return;
         }
-        console.log(currPageId);
         //remove firebase hook
         if (currPageId === 'social-wall-ons-page') {
             SocialWall.destroy();
         }
         if (currPageId !== 'chat-group-page') {
             Chat.destroy();
+        }
+        if (currPageId !== 'add-comment-page') {
+            PostComments.destroy();
         }
         Loading.show();
         $('#menu').attr('swipeable', true);
@@ -68,6 +70,9 @@ const Navigation = (function () {
         // clear chat hook
         if (lastPage.classList.value.indexOf('chat-group-page') > -1) {
             Chat.destroy();
+        }
+        if (lastPage.classList.value.indexOf('add-comment-page') > -1) {
+            PostComments.destroy();
         }
         appNavigator.popPage({
             callback: function () {

@@ -122,6 +122,33 @@ const template = (function() {
                 </ons-page>
             </template>`
         },
+        addPostComment: {
+            id: `add-post-comment-ons-page`,
+            html: `
+            <template id="add-post-comment-ons-page">
+                <ons-page class="add-comment-page">
+                    <ons-toolbar>
+                      <div class="left">
+                        <ons-toolbar-button onclick="Navigation.pop()">
+                            <i class="fas fa-chevron-left"></i>
+                        </ons-toolbar-button>
+                      </div>
+                      <div class="center">
+                          Post Comments
+                      </div>
+                      <div class="right">
+                      </div>
+                    </ons-toolbar>
+                    <div class="main-container">
+                        <div id="social-wall-comments-list"></div>
+                    </div>
+                    <ons-bottom-toolbar class="add-post-comment-form-container">
+                        <div class="text-area-container"><textarea id="add-comment-input" placeholder="" wrap="soft" rows="1"></textarea></div>
+                        <div class="send-comment-button-container"><i class="fal fa-paper-plane"></i></div>
+                    </ons-bottom-toolbar>
+                </ons-page>
+            </template>`
+        },
         login: {
             id: `login-ons-page`,
             html: `
