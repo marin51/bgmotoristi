@@ -40,3 +40,13 @@ function validateLink(link) {
     }
     return validLink;
 }
+
+$.fn.isInViewport = function() {
+    if (this.length) {
+        var elementTop = $(this).offset().top;
+        var elementBottom = elementTop + $(this).outerHeight() - 40;
+        var viewportTop = $(window).scrollTop();
+        var viewportBottom = viewportTop + $(window).height();
+        return elementBottom > viewportTop && elementTop < viewportBottom;
+    }
+};

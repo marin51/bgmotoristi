@@ -1,5 +1,5 @@
 // jshint esversion:6
-const Chat = (function () {
+const Chat = (function() {
     let messagesListener = null;
 
     function init(id) {
@@ -14,7 +14,7 @@ const Chat = (function () {
 
         function controller() {
             Loading.hide();
-            messagesListener = MessagesService.getRef().where('groupId', '==', groupData.id).orderBy('timestamp', 'asc').onSnapshot(function (querySnapshot) {
+            messagesListener = MessagesService.getRef().where('groupId', '==', groupData.id).orderBy('timestamp', 'asc').onSnapshot(function(querySnapshot) {
                 allMessagesArray = [];
                 allUsersArray = Users.get();
                 if (querySnapshot.docs.length) {
@@ -30,15 +30,15 @@ const Chat = (function () {
                 }
 
                 if ($('.chat-group-page .single-message-container').length > 0) {
-                    querySnapshot.docChanges().forEach(function (change) {
+                    querySnapshot.docChanges().forEach(function(change) {
                         if (change.type === "added") {
                             addNewMessage(change.doc.data());
-                            scrollListing();
+                            if ($('.chat-group-page .single-message-container').eq(-2).isInViewport()) {
+                                scrollListing();
+                            }
                         }
-                        if (change.type === "modified") {
-                        }
-                        if (change.type === "removed") {
-                        }
+                        if (change.type === "modified") {}
+                        if (change.type === "removed") {}
 
                     });
                 } else {
@@ -48,10 +48,12 @@ const Chat = (function () {
             });
 
             function loadMessages() {
-                for (var i = 0; i < allMessagesArray.length; i += 1) {
-                    addNewMessage(allMessagesArray[i]);
+                if (allMessagesArray.length) {
+                    for (var i = 0; i < allMessagesArray.length; i += 1) {
+                        addNewMessage(allMessagesArray[i]);
+                    }
+                    scrollListing();
                 }
-                scrollListing();
             }
 
             function addNewMessage(message) {
@@ -70,15 +72,15 @@ const Chat = (function () {
             }
 
             // TODO: 3. Add new message event
-            $('.chat-form-container .send-button-container').on('click', function () {
+            $('.chat-form-container .send-button-container').on('click', function() {
                 const button = $(this);
                 const text = $('.chat-form-container #group-chat-input').val();
                 button.prop('disabled', true);
                 if (text.length) {
-                    MessagesService.addMessage(text, groupData.id).then(function () {
+                    MessagesService.addMessage(text, groupData.id).then(function() {
                         $('.chat-form-container #group-chat-input').val('');
                         button.prop('disabled', false)
-                    }, function (error) {
+                    }, function(error) {
                         // TODO: show error message
                         console.log('error', error);
                         ons.notification.alert({
@@ -89,7 +91,7 @@ const Chat = (function () {
             });
 
             function scrollListing() {
-                $('.chat-group-page').stop().animate({scrollTop: $('.chat-group-page')[0].scrollHeight}, 500);
+                $('.chat-group-page').stop().animate({ scrollTop: $('#group-chat-messages-list')[0].scrollHeight }, 500);
             }
         }
     }
