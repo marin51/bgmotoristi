@@ -1,7 +1,6 @@
 /*jshint esversion: 6 */
 const UsersMap = (function() {
     'use strict';
-
     function init() {
         if (localStorage.getItem('logged_user_deny_access_to_location') == 1 || !localStorage.getItem('logged_user_position')) {
             ons.notification.alert({
@@ -15,11 +14,9 @@ const UsersMap = (function() {
                         loadModule();
                     }, function(error) {
                         ons.notification.alert('It seems you have to give permission from settings. Go to settings and allow to use location!');
-                        return;
                     });
                 } else {
                     ons.notification.alert('It seems you have to give permission from settings. Go to settings and allow to use location!');
-                    return;
                 }
             });
         } else {
@@ -50,9 +47,8 @@ const UsersMap = (function() {
                         if (coords.userId !== localStorage.getItem('logged_user_id')) { return coords; };
                     });
                     loadMap();
-                }, function(error) {
+                }, function() {
                     ons.notification.alert('It seems you have to give permission from settings. Go to settings and allow to use location!');
-                    return;
                 });
             });
 

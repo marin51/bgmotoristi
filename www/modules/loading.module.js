@@ -1,6 +1,6 @@
-var Loading = (function() {
+const Loading = (function() {
 
-    var loadingModal,
+    let loadingModal,
         loadingModalHTML = '';
 
     loadingModalHTML += '<ons-modal id="loading-modal-template" direction="up">';

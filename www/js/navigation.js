@@ -3,7 +3,6 @@ const Navigation = (function () {
     'use strict';
     let currPageId = '';
 
-
     const loadPage = function (pageId, animation, controller) {
         if (currPageId === pageId) {
             return;

@@ -255,13 +255,9 @@ const SocialWall = (function() {
                 $('.post-comments-counter').off('click').on('click', function() {
                     const postId = $(this).attr('data-id');
                     PostComments.init(postId);
-
                 });
-
             }
-
         }
-
     }
 
     function destroy() {

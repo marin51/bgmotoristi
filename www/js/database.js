@@ -18,13 +18,10 @@ const Database = (function() {
         storage = firebase.storage();
         auth.onAuthStateChanged(function(user) {
             if (user) {
-                // User is signed in.
-                start();
+                start();  // User is signed in.
                 Home.init();
-
             } else {
-                // User is signed out.
-                Login.init();
+                Login.init();  // User is signed out.
             }
 
             function start() {
@@ -63,7 +60,6 @@ const Database = (function() {
             var metadata = {
                 contentType: 'image/jpeg'
             };
-            // Upload file and metadata to the object 'images/mountains.jpg'
             var uploadTask = storage.ref().child(path).put(file, metadata);
             // Listen for state changes, errors, and completion of the upload.
             uploadTask.on('state_changed', // or firebase.storage.TaskEvent.STATE_CHANGED
@@ -92,7 +88,6 @@ const Database = (function() {
                     }); // Upload completed successfully, now we can get the download URL
                 });
         });
-
     }
 
     return {

@@ -1,7 +1,6 @@
 //jshint esversion: 6
 const MapsService = (function() {
     'use strict';
-
     function getCurrentLocation() {
         return new Promise(function(resolve, reject) {
             navigator.geolocation.getCurrentPosition(function(position) {
@@ -50,12 +49,10 @@ const MapsService = (function() {
 
                 });
             }, function(error) {
-                alert(JSON.stringify(error));
                 localStorage.setItem('logged_user_deny_access_to_location', 1);
                 reject(error);
             });
         });
-
     }
     return {
         getCurrentLocation: getCurrentLocation

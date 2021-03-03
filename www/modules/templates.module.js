@@ -1,17 +1,11 @@
 // jshint esversion:6
 const template = (function() {
     'use strict';
-
     function load(templateName) {
         let templateId = allTemplates[templateName].id;
-
         if (!$("#" + templateId).length) {
             $('ons-splitter').after(allTemplates[templateName].html);
-        } else {
-            let selector = $($('#' + templateId)[0])[0].content;
-            // selector.querySelector('.main-container').innerHTML = ``;
         }
-
     }
 
     const allTemplates = {
@@ -368,11 +362,8 @@ const template = (function() {
                 </ons-page>
             </template>`
         }
-    }
-
-
+    };
     return {
         load: load
     }
-
 }());

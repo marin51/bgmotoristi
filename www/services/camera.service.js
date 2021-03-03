@@ -1,8 +1,6 @@
 //jshint esversion: 6
 const CameraService = (function() {
     'use strict';
-
-
     function showCameraActionSheet() {
 
         return new Promise((resolve, reject) => {

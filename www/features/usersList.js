@@ -1,11 +1,8 @@
 /*jshint esversion: 6 */
 const UsersList = (function() {
     'use strict';
-
     function init() {
         let allUsers = Users.get();
-
-
         template.load('usersList');
         Navigation.load('users-list-ons-page', 'fade-ios', controller);
 

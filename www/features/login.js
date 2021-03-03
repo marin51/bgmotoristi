@@ -1,9 +1,7 @@
 /*jshint esversion: 6 */
 const Login = (function() {
     'use strict';
-
     function init() {
-
         template.load('login');
         Navigation.load('login-ons-page', 'fade-ios', controller);
 
